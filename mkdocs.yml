@@ -57,3 +57,8 @@ markdown_extensions:
 
 extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+extra:
+  analytics:
+    provider: google
+    property: G-X3SVQVTEE3
