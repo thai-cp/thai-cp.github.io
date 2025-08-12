@@ -1,5 +1,22 @@
-site_name: TOI Guide
-site_url: https://sitename.example
+site_name: Thailand Competitive Programming Wiki
+site_url: https://thai-cp.github.io/
+
+nav:
+  - ทั่วไป:
+    - Thailand Competitive Programming Wiki: index.md
+    - อะไรคือ Competitive Programming?: general/intro-cp.md
+    - สอวน. คอมพิวเตอร์: general/posn.md
+    - แหล่งเรียนรู้: general/resources.md
+  - การเขียนโปรแกรมเบื้องต้น:
+    - บทนำ: prog-basic/index.md
+    - วิธีการรันโปรแกรม: prog-basic/run-code.md
+    - การเขียนโปรแกรมภาษา C:
+      - Hello, World!: prog-basic/c/hello-world.md
+      - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/c/variable.md
+      - การส่งออกและนำเข้าข้อมูล: prog-basic/c/input-output.md
+    # - การเขียนโปรแกรมภาษา C++:
+    #   -
+
 theme:
   name: material
   palette:
@@ -31,3 +48,12 @@ markdown_extensions:
       alternate_style: true
   - admonition
   - pymdownx.details
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+  - extensions.problem_tag:
+
+      problems_dir: docs/problems/
+
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
