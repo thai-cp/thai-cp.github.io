@@ -3,8 +3,6 @@ title: แหล่งเรียนรู้
 author: Pakin Olanraktham
 ---
 
-# แหล่งเรียนรู้
-
 ## เนื้อหา
 - **[Thai CP Wiki](https://thai-cp.github.io/)**
 - [Competitive Programmer's Handbook (CPH)](https://cses.fi/book/book.pdf) (ภาษาอังกฤษ)

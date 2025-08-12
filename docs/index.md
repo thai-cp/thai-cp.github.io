@@ -1,9 +1,7 @@
 ---
 title: Thailand Competitive Programming Wiki
-author: Pakin Olanraktham
+hide: navigation
 ---
-
-# Thailand Competitive Programming Wiki
 
 ## เกี่ยวกับพวกเรา
 **Thailand Competitive Programming Wiki (Thai CP Wiki)** ถูกพัฒนาโดยกลุ่มนักเรียนคอมพิวเตอร์โอลิมปิก เพื่อถ่ายทอดเนื้อหาสำหรับการฝึกฝน Competitive Programming และการสอบคอมพิวเตอร์โอลิมปิกในทุกระดับ ตั้งแต่มือใหม่จนถึงการแข่งขันระดับนานาชาติ พวกเราไม่มีส่วนเกี่ยวข้องใดๆ กับ สอวน. หรือ สสวท. ทั้งสิ้น

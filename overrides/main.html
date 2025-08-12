@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if page.meta.link %} 
+        <h1 style="margin-bottom: 0.1em; font-weight: bold;"><a href="{{ page.meta.link }}" target="_blank" rel="noopener noreferrer">{{ page.meta.title }}</a></h1>
+    {% else %}
+        <h1 style="margin-bottom: 0.1em; font-weight: bold;">{{ page.meta.title }}</h1>
+    {% endif %}
+    {% if page.meta.author %}
+        <p style="margin-top: 0em;">
+            ผู้เขียน: {{ page.meta.author }}
+        </p>
+    {% endif %}
+    <hr>
+    {{ page.content }}
+{% endblock %}

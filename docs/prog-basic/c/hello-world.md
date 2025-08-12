@@ -3,8 +3,6 @@ title: Hello, World!
 author: Pakin Olanraktham
 ---
 
-# Hello, World!
-
 ```c
 #include <stdio.h>
 

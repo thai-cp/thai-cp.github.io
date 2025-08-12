@@ -2,8 +2,8 @@ site_name: Thailand Competitive Programming Wiki
 site_url: https://thai-cp.github.io/
 
 nav:
+  - Home: index.md
   - ทั่วไป:
-    - Thailand Competitive Programming Wiki: index.md
     - อะไรคือ Competitive Programming?: general/intro-cp.md
     - สอวน. คอมพิวเตอร์: general/posn.md
     - แหล่งเรียนรู้: general/resources.md
@@ -19,6 +19,7 @@ nav:
 
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - scheme: default
       toggle:
@@ -30,6 +31,8 @@ theme:
         name: Switch to Light Mode
   features:
     - navigation.tabs
+    - navigation.instant
+    
 
 markdown_extensions:
   - pymdownx.highlight:
