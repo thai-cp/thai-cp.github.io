@@ -39,7 +39,7 @@ class Preprocessor(Preprocessor):
         for f in os.listdir("docs/problems"):
             pid, _ = os.path.splitext(f)
             if pid == "index": continue
-            
+
             file_path = self.problems_dir / f"{pid}.md"
 
             title, source, difficulty, link = pid, None, "?", None
@@ -60,14 +60,12 @@ class Preprocessor(Preprocessor):
                     source = meta.get("source")
                     difficulty = meta.get("difficulty", "?")
                     link = meta.get("link")
-            
-            editorial_cell = f"<a href=\"/problems/{pid}\" target=\"_blank\" rel=\"noopener noreferrer\">View</a>"
 
             rows.append(f"-   <a href=\"{link}\" target=\"_blank\" rel=\"noopener noreferrer\">**{title}**</a>" if link else title)
             rows.append(f"    ---")
             rows.append(f'    **Source**: {source}')
             rows.append(f'    **Difficulty**: {difficulty}')
-            rows.append(f'    <a href="{file_path}" target="_blank" rel="noopener noreferrer">**View Editorial** :material-open-in-new:</a>')
+            rows.append(f'    <a href="/problems/{pid}" target="_blank" rel="noopener noreferrer">**View Editorial** :material-open-in-new:</a>')
 
         table = '<div class="grid cards" markdown>'
         table += "\n\n".join(rows)
