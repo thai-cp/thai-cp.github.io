@@ -14,8 +14,10 @@ nav:
       - Hello, World!: prog-basic/c/hello-world.md
       - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/c/variable.md
       - การส่งออกและนำเข้าข้อมูล: prog-basic/c/input-output.md
+      - คำสั่ง if - else: prog-basic/c/if-else.md
     # - การเขียนโปรแกรมภาษา C++:
     #   -
+  - โจทย์: problems/index.md
 
 theme:
   name: material
@@ -55,8 +57,16 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - extensions.problem_tag:
-
       problems_dir: docs/problems/
+  - extensions.problem_info:
+      problems_dir: docs/problems/
+  - extensions.problem_all:
+      problems_dir: docs/problems/
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
