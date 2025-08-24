@@ -15,6 +15,9 @@ nav:
       - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/c/variable.md
       - การส่งออกและนำเข้าข้อมูล: prog-basic/c/input-output.md
       - คำสั่ง if - else: prog-basic/c/if-else.md
+  - โครงสร้างข้อมูลและอัลกอริทึ่ม:
+    - อัลกอรึที่ม:
+      - binary search: algorithm/binary-search.md
     # - การเขียนโปรแกรมภาษา C++:
     #   -
   - โจทย์: problems/index.md
