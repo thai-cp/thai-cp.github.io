@@ -13,7 +13,7 @@ class Extension(Extension):
     def extendMarkdown(self, md):
         md.registerExtension(self)
         md.preprocessors.register(
-            Preprocessor(self.problems_dir), 'problem_table', 175
+            Preprocessor(self.problems_dir), 'problem_all', 175
         )
 
 class Preprocessor(Preprocessor):
@@ -28,13 +28,13 @@ class Preprocessor(Preprocessor):
         for line in lines:
             match = self.tag.search(line)
             if match:
-                html = self.build_table()
+                html = self.build_card()
                 new_lines.append(html)
             else:
                 new_lines.append(line)
         return new_lines
 
-    def build_table(self):
+    def build_card(self):
         rows = []
         for f in os.listdir("docs/problems"):
             pid, _ = os.path.splitext(f)
