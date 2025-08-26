@@ -52,6 +52,7 @@ class Preprocessor(Preprocessor):
 
                 source = meta.get("source")
                 difficulty = meta.get("difficulty", "?")
+                if (difficulty == None): difficulty = '?'
                 link = meta.get("link")
                 fsource = meta.get("fsource", None)
                 source = meta.get("fsource", None)

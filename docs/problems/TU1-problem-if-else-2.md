@@ -2,13 +2,12 @@
 title: โจทย์คำสั่งเลือกทำ (เพิ่มเติม)
 source: TU1
 fsource: ศูนย์ สอวน. โรงเรียนสามเสนวิทยาลัย - มหาวิทยาลัยธรรมศาสตร์ (ค่าย 1)
-link: /assets/c1-if-else-other.pdf
+link: /assets/TU1-problem-if-else-2.pdf
 difficulty: Very Easy
 tags: 
 ---
 
-
-!problem_info c1-if-else-other
+!problem_info TU1-problem-if-else-2
 
 !!! warning "คำเตือน"
     บทเรียนนี้ยังไม่สมบูรณ์

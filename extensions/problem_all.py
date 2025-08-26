@@ -57,8 +57,10 @@ class Preprocessor(Preprocessor):
                     meta = yaml.safe_load("".join(meta_lines)) or {}
 
                     title = meta.get("title", pid)
+                    if (title == None): title = pid
                     source = meta.get("source")
                     difficulty = meta.get("difficulty", "?")
+                    if (difficulty == None): difficulty = '?'
                     link = meta.get("link")
 
             rows.append(f"-   <a href=\"{link}\" target=\"_blank\" rel=\"noopener noreferrer\">**{title}**</a>" if link else title)

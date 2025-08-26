@@ -15,11 +15,9 @@ nav:
       - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/c/variable.md
       - การส่งออกและนำเข้าข้อมูล: prog-basic/c/input-output.md
       - คำสั่ง if - else: prog-basic/c/if-else.md
-  - โครงสร้างข้อมูลและอัลกอริทึ่ม:
-    - อัลกอรึที่ม:
-      - binary search: algorithm/binary-search.md
-    # - การเขียนโปรแกรมภาษา C++:
-    #   -
+      - คำสั่งวนซ้ำ (For Loop): prog-basic/c/for-loop.md
+  - อัลกอริทึมพื้นฐาน:
+      - Binary Search: algorithm-basic/binary-search.md
   - โจทย์: problems/index.md
 
 theme:
@@ -36,7 +34,7 @@ theme:
         name: Switch to Light Mode
   features:
     - navigation.tabs
-    - navigation.instant
+    # - navigation.instant
     
 
 markdown_extensions:

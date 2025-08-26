@@ -22,4 +22,4 @@ if (เงื่อนไข 1) {
     - ถ้าค่าในเงื่อนไขเท่ากับ 1 หมายถึงเป็นเงื่อนไขเป็นจริง และ 0 หมายถึงเงื่อนไขเป็นเท็จ
 
 ## โจทย์
-!problems [prog-0001, c1-if-else-other]
+!problems [prog-0001, TU1-problem-if-else-1, TU1-problem-if-else-2]

@@ -81,4 +81,4 @@ scanf("%d %f %c", &age, &price, &grade); // ข้อมูลที่นำเ
     - ไม่ขำเป็นต้องสนใจลำดับการ output กับ input เช่น เราไม่จำเป็นต้องเก็บคำตอบไว้ แล้วค่อย output ออกมาทีเดียว หลัง input เสร็จ แต่สามารถ print ได้ทันทีเลย แม้ว่าจะยัง input ไม่ครบ เพราะระบบ Grader แยก input และ output ออกจากกัน
 
 ## โจทย์
-!problems [prog-0000]
+!problems [prog-0000, prog-0008]
