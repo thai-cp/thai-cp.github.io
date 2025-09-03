@@ -36,7 +36,8 @@ class Preprocessor(Preprocessor):
 
     def build_card(self):
         rows = []
-        for f in os.listdir("docs/problems"):
+        # Use the configured problems_dir instead of a hard-coded path
+        for f in os.listdir(self.problems_dir):
             pid, _ = os.path.splitext(f)
             if pid == "index": continue
 

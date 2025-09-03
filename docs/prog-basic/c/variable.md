@@ -21,9 +21,10 @@ author: Pakin Olanraktham
 | `char`      | ตัวอักษร 1 ตัว                                   | `char grade = 'A';`             |
 
 !!! info "คำแนะนำ"
-    สามารถศึกษาเพิ่มเติมได้ที่ <a href="https://www.geeksforgeeks.org/c/data-types-in-c/" target="_blank" rel="noopener noreferrer">GeeksforGeeks</a>
+    สามารถศึกษาเพิ่มเติมได้ที่ [GeeksforGeeks](https://www.geeksforgeeks.org/c/data-types-in-c/)
 
 ## ตัวดำเนินการทางคณิตศาสตร์
+
 ในภาษา C เราสามารถนำตัวแปรแต่ละตัวมาบวกลบคูณหาร กันได้เหมือนในคณิตศาสตร์ เช่น $z = 3x+7(y+5)$ ซึ่งตัวดำเนินการแต่ละตัวมี **ลำดับความสำคัญ** โดยเรียงตามตารางดังต่อไปนี้ หากมีลำดับความสำคัญที่เท่ากัน จะทำจากซ้ายไปขวา
 
 | ลำดับ | ตัวดำเนินการ                         | ความหมาย                     | ตัวอย่าง                      |
