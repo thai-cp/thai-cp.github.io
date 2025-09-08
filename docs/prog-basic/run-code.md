@@ -5,7 +5,7 @@ author: Pakin Olanraktham
 
 ## การรันโค้ดภายในเครื่อง (Running Code Locally)
 
-!resource [(Download VS Code, https://code.visualstudio.com/Download), (C/C++ for VS Code, https://code.visualstudio.com/docs/languages/cpp)]
+!resources [(Download VS Code, https://code.visualstudio.com/Download, VS Code), (C/C++ for VS Code, https://code.visualstudio.com/docs/languages/cpp, VS Code)]
 
 ในการรันโปรแกรม เราจะต้องใช้ "Code Editor" หรือ "IDE" โดยที่นิยม ของภาษา C/C++ ได้แก่
 
@@ -25,7 +25,7 @@ author: Pakin Olanraktham
 
 **การติดตั้ง Compiler**
 
-!resource [(GCC with MinGW, https://code.visualstudio.com/docs/cpp/config-mingw)]
+!resources [(GCC with MinGW, https://code.visualstudio.com/docs/cpp/config-mingw, VS Code)]
 
 1. ดาวน์โหลด [MinGW-w64](https://github.com/msys2/msys2-installer/releases/download/2024-12-08/msys2-x86_64-20241208.exe)
 2. รัน Installer ของ MinGW และทำตามขั้นตอน เมื่อเสร็จสิ้น ให้ช่อง "Run MSYS2 now" ถูกเลือกอยู่ด้วย แล้วจึงกด "Finish"

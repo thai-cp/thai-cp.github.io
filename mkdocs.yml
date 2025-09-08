@@ -58,11 +58,9 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - extensions.problem_tag:
-      problems_dir: docs/problems/
   - extensions.problem_info:
-      problems_dir: docs/problems/
   - extensions.problem_all:
-      problems_dir: docs/problems/
+  - extensions.resources_tag:
   - attr_list
   - md_in_html
   - pymdownx.emoji:
