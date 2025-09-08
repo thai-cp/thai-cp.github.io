@@ -67,7 +67,7 @@ class Preprocessor(Preprocessor):
             rows.append(f"    ---")
             rows.append(f'    **Source**: {source}')
             rows.append(f'    **Difficulty**: {difficulty}')
-            rows.append(f'    <a href="/problems/{pid}" target="_blank" rel="noopener noreferrer">**View Editorial** :material-open-in-new:</a>')
+            rows.append(f'    <a href="/problems/{pid}" target="_blank" rel="noopener noreferrer">**View Solution** :material-open-in-new:</a>')
 
         table = '<div class="grid cards" markdown>'
         table += "\n\n".join(rows)

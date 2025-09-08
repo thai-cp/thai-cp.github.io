@@ -61,11 +61,11 @@ class Preprocessor(Preprocessor):
                     link = meta.get("link")
 
             problem_cell = f"<a href=\"{link}\" target=\"_blank\" rel=\"noopener noreferrer\">{title}</a>" if link else title
-            editorial_cell = f"<a href=\"/problems/{pid}\" target=\"_blank\" rel=\"noopener noreferrer\">View</a>"
+            solution_cell = f"<a href=\"/problems/{pid}\" target=\"_blank\" rel=\"noopener noreferrer\">View</a>"
 
-            rows.append(f"| {problem_cell} | {source} | {difficulty} | {editorial_cell} |")
+            rows.append(f"| {problem_cell} | {source} | {difficulty} | {solution_cell} |")
 
-        table = "| Problem | Source | Difficulty | Editorial |\n|-|-|-|-|\n"
+        table = "| Problem | Source | Difficulty | Solution |\n|-|-|-|-|\n"
         table += "\n".join(rows)
         return table
 

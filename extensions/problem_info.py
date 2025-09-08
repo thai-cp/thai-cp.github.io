@@ -54,6 +54,7 @@ class Preprocessor(Preprocessor):
                 difficulty = meta.get("difficulty", "?")
                 if (difficulty == None): difficulty = '?'
                 link = meta.get("link")
+                extsol = meta.get("extsol", None)
                 fsource = meta.get("fsource", None)
                 source = meta.get("fsource", None)
                 tags = meta.get("tags", None)
@@ -65,6 +66,7 @@ class Preprocessor(Preprocessor):
             if (difficulty) : rows.append(f'    **Difficulty**: {difficulty}\n')
             if (tags): rows.append(f'    **Tags**: {", ".join(tags)}\n')
             if (prereq): rows.append(f'    **Prerequisites**:\n\n' + "".join(f'    - {p}\n' for p in prereq))
+            if (extsol) : rows.append(f'    <a href="{extsol}" target="_blank" rel="noopener noreferrer">**View External Solution** :material-open-in-new:</a>\n')
 
             return "\n".join(rows)
     

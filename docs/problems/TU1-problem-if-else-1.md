@@ -9,5 +9,4 @@ tags:
 
 !problem_info TU1-problem-if-else-1
 
-!!! warning "คำเตือน"
-    บทเรียนนี้ยังไม่สมบูรณ์
+!unfinished

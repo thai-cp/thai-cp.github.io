@@ -9,5 +9,4 @@ tags:
 
 !problem_info TU1-problem-for-loop
 
-!!! warning "คำเตือน"
-    บทเรียนนี้ยังไม่สมบูรณ์
+!unfinished
