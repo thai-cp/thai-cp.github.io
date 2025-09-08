@@ -16,6 +16,7 @@ nav:
       - การส่งออกและนำเข้าข้อมูล: prog-basic/c/input-output.md
       - คำสั่ง if - else: prog-basic/c/if-else.md
       - คำสั่งวนซ้ำ (For Loop): prog-basic/c/for-loop.md
+      - ตัวแปรชุด และสายอักขระ: prog-basic/c/array.md
   - อัลกอริทึมพื้นฐาน:
       - Binary Search: algorithm-basic/binary-search.md
   - โจทย์: problems/index.md
