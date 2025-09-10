@@ -18,6 +18,14 @@ nav:
       - คำสั่งวนซ้ำ (For Loop): prog-basic/c/for-loop.md
       - ตัวแปรชุด และสายอักขระ: prog-basic/c/array.md
       - ฟังก์ชัน: prog-basic/c/function.md
+    - การเขียนโปรแกรมภาษา C++:
+      - Hello, World!: prog-basic/cpp/hello-world.md
+      - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/cpp/variable.md
+      - การส่งออกและนำเข้าข้อมูล: prog-basic/cpp/input-output.md
+      - คำสั่ง if - else: prog-basic/cpp/if-else.md
+      - คำสั่งวนซ้ำ (For Loop): prog-basic/cpp/for-loop.md
+      - ตัวแปรชุด และสายอักขระ: prog-basic/cpp/array.md
+      - ฟังก์ชัน: prog-basic/c/function.md
   - อัลกอริทึมพื้นฐาน:
       - Binary Search: algorithm-basic/binary-search.md
   - โจทย์: problems/index.md
@@ -27,10 +35,14 @@ theme:
   custom_dir: overrides
   palette:
     - scheme: default
+      primary: green
+      accent: light green
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to Dark Mode
     - scheme: slate
+      primary: green
+      accent: light green
       toggle:
         icon: material/toggle-switch
         name: Switch to Light Mode
@@ -77,3 +89,6 @@ extra:
   analytics:
     provider: google
     property: G-X3SVQVTEE3
+
+repo_url: https://github.com/thai-cp/thai-cp.github.io/
+repo_name: thai-cp/thai-cp.github.io
