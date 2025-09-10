@@ -10,7 +10,7 @@ author: Pakin Olanraktham
 ## While Loop
 
 While Loop เหมาะกับการใช้ในกรณีที่เราไม่รู้จำนวนรอบที่แน่นอน หรือต้องการให้หยุดตามเงื่อนไข เช่นการทำซ้ำไปเรื่อยๆ จนกว่าค่าจะเป็น 1 มีโครงสร้างดังนี้
-```c
+```cpp
 while (condition) {
     // code ที่จะทำซ้ำ
 }
@@ -22,17 +22,19 @@ while (condition) {
 
 ให้ $x= 2^n$ เมื่อ $n >= 0$ จงหาค่า $n$ จากการรับค่า $x$
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+
+using namespace std;
 
 int main() {
     int x, n = 0;
-    scanf("%d", &x); // รับค่า x
+    cin >> x; // รับค่า x
     while (x > 1) { // ทำจนกว่า x จะเท่ากับ 1 ถึงหยุด
         n++; // เพิ่มค่า n
         x /= 2; // หารด้วย 2
     }
-    printf("%d\n", n);
+    cout << n << '\n'; // ส่งออกค่า n
 }
 ```
 
@@ -40,7 +42,7 @@ int main() {
 
 คือ ​While Loop ที่ทำก่อน แล้วค่อยตรวจสอบ มีโครงสร้างดังนี้
 
-```c
+```cpp
 do {
     // code ที่จะทำซ้ำ
 } while (condition)
@@ -50,7 +52,7 @@ do {
 
 For Loop เหมาะกับการใช้เมื่อเรารู้จำนวนรอบที่แน่นอนในการทำ เช่น ต้องการรับค่า $10^6$ รอบ, ต้องการหาค่า Factorial ของจำนวนเต็ม $x$ (คือการคูณเลขตั้งแต่ 1 ถึง $x$) โดยโครงสร้างของ For Loop มีดังนี้
 
-```c
+```cpp
 for (initialization; condition; update) {
     // code ที่จะทำซ้ำ
 }
@@ -64,16 +66,16 @@ for (initialization; condition; update) {
 
 ต้องการหาค่า $x!$ สำหรับค่า $x$ ที่รับเข้ามา
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
 
 int main() {
     int x, fac = 1;
-    scanf("%d", &x); // รับค่า x
+    cin >> x // รับค่า x
     for (int i = 1; i <= x; i++) { // ลูปตั้งแต่ 1 ถึง x
         fac *= i; // คูณค่า i เข้าไปในคำตอบ
     }
-    printf("%d\n", fac);
+    cout << fac << '\n';
 }
 ```
 
@@ -81,34 +83,34 @@ int main() {
 
 - เราสามารถใส่ Loop ซ้อนใน Loop ได้ เช่น
 
-```c
+```cpp
 for (int i = 1; i <= 5; i++) {
-    for (int j = 1; j <= 5; j++) printf("%d ", i*j);
-    printf("\n");
+    for (int j = 1; j <= 5; j++) cout << i * j << ' ';
+    cout << '\n';
 }
 ```
 
 - ไม่จำเป็นต้องมีปีกกาครอบโค้ด โดยจะทำงานเพียงแค่ 1 คำสั่งเท่านั้น ที่ต่อจากโค้ด (ไม่สนใจการเว้นวรรค หรือการขึ้นบรรทัดใหม่)
 
-```c
-for (...) printf("This is inside the loop");
-printf("This isn't inside the loop");
+```cpp
+for (...) cout << "This is inside the loop";
+cout << "This isn't inside the loop";
 
 for (...)
-    printf("This is inside the loop");
-    printf("This isn't inside the loop");
+    cout << "This is inside the loop";
+    cout << "This isn't inside the loop";
 
 for (...)
 
 
-printf("This is inside the loop");
-printf("This isn't inside the loop");
+cout << "This is inside the loop";
+cout << "This isn't inside the loop";
 
 // โค้ดข้างต้นทั้งหมดเทียบได้กับ
 // for (...) {
-//     printf("This is inside the loop");
+//     cout << "This is inside the loop";
 // }
-// printf("This isn't inside the loop");
+// cout << "This isn't inside the loop";
 
 // while (...) ก็ทำงานเหมือนกับ for loop ในทำนองเดียวกัน
 ```
@@ -128,15 +130,17 @@ N = 4
 ??? note "Observation"
     จะเห็นว่าบรรทัดที่ $i$ จะมีเครื่องหมาย # ทั้งหมด $i$ ตัว
 ??? note "Code"
-    ```c
-    #include <stdio.h>
+    ```cpp
+    #include <iostream>
+
+    using namespace std;
 
     int main() {
         int N;
-        scanf("%d", &N); // รับค่า N
+        cin >> N; // รับค่า N
         for (int i = 1; i <= N; i++) { // ลูปสำหรับแต่ละแถว
-            for (int j = 1; j <= i; j++) printf("#"); // print # จำนวนเท่ากับเลขบรรทัดนั้นๆ
-            printf("\n");
+            for (int j = 1; j <= i; j++) cout << '#'; // print # จำนวนเท่ากับเลขบรรทัดนั้นๆ
+            cout << '\n';
         }
     }
     ```

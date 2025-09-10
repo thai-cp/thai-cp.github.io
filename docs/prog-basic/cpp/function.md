@@ -6,7 +6,7 @@ author: Pakin Olanraktham
 Function (ฟังก์ชัน) คือกลุ่มของคำสั่งที่เรานำมารวมกันไว้ เพื่อให้สามารถเรียกใช้งานซ้ำได้ง่ายขึ้น โดยไม่ต้องเขียนโค้ดซ้ำๆ หลายครั้ง
 
 ## โครงสร้างของฟังก์ชัน
-```c
+```cpp
 return_type function_name(parameter1, parameter2, ...) {
     // คำสั่งต่าง ๆ
     return value; // ส่งค่ากลับ (ถ้ามี)
@@ -22,17 +22,19 @@ return_type function_name(parameter1, parameter2, ...) {
 
 ### ตัวอย่าง
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+
+using namespace std;
 
 // ไม่มี parameter และไม่มี return
 void hello() { 
-    printf("Hello!\n"); 
+    cout << "Hello!\n"; 
 }
 
 // มี parameter แต่ไม่มี return
 void printSum(int a, int b) { 
-    printf("%d + %d = %d\n", a, b, a+b); 
+    cout << a << " + " << b << " = " << b << '\n';
 }
 
 // ไม่มี parameter แต่มี return
@@ -52,32 +54,36 @@ int main() {
     printSum(5, 7); // output คือ "5 + 7 = 12"
     
     int num = getNum();
-    printf("%d\n", num); // output คือ 42
+    cout << num << '\n'; // output คือ 42
     
     int result = add(10, 20);
-    printf("%d\n", result); // output คือ 30
+    cout << result << '\n'; // output คือ 30
 }
 ```
 
 !!! note "โจทย์ตัวอย่าง"
     จงเขียนฟังก์ชันเพื่อคำนวณพื้นที่สามเหลี่ยมสูง H ฐานยาว B โดยคืนค่าออกมาเป็นทศนิยม
 ??? note "เฉลย"
-    ```c
-    #include <stdio.h>
+    ```cpp
+    #include <iostream>
+
+    using namespace std;
 
     float triangle_area(int H, int B) { // ประกาศฟังก์ชัน ชื่อว่า "triangle_area" ซึ่งรับค่าเป็นจำนวนเต็ม 2 ตัว และคืนค่าออกมาเป็นทศนิยม
         return ((float) H) * B / 2; // เปลี่ยน H ให้เป็นทศนิยมก่อน เพื่อที่จะได้คำตอบออกมาเป็นทศนิยม แล้วนำไปเข้าสูตร พื้นที่ = 1/2 * ฐาน * สูง
     }
 
     int main() {
-        printf("%.2f\n", triangle_area(5, 10)); // จะได้ output ออกมาเป็น 25.00
+        cout << fixed << setprecision(2) << triangle_area(5, 10); // จะได้ output ออกมาเป็น 25.00
     }
     ```
 
 !!! note "เพิ่มเติม"
     เราสามารถประกาศตัวแปรไว้ข้างนอก `main()` ได้ โดยตัวแปรนี้ ทุกฟังก์ชัน จะสามารถเข้าถึงได้ สามารถเปลี่ยนแปลงค่าได้ เช่น
-    ```c
-    #include <stdio.h>
+    ```cpp
+    #include <iostream>
+
+    using namespace std;
 
     int count = 0;
 
@@ -89,7 +95,7 @@ int main() {
         increase_count(); // count = 0 + 1 = 1
         increase_count(); // count = 1 + 1 = 2
         increase_count(); // count = 2 + 1 = 3
-        printf("%d\n", count); // output จะได้ 3
+        cout << count << '\n'; // output จะได้ 3
     }
     ```
 
@@ -97,7 +103,7 @@ int main() {
 
 Recursive Function คือฟังก์ชันที่ เรียกใช้งานตัวเอง ภายในฟังก์ชันเดียวกัน ใช้เมื่อปัญหาสามารถแบ่งออกเป็นปัญหาย่อยๆ ที่มีลักษณะเหมือนกัน
 
-```c
+```cpp
 return_type function_name(parameters) {
     if (เงื่อนไขหยุดทำงาน)  // base case
         return ค่าบางอย่าง;
@@ -112,8 +118,10 @@ return_type function_name(parameters) {
 ### ตัวอย่าง
 ต้องการหาค่า factorial(n) เมื่อ n เป็นจำนวนเต็มที่ไม่ติดลบ
 
-```c
-#include <stdio.h>
+```cpp
+#include <iostream>
+
+using namespace std;
 
 int factorial(int n) {
     if (n == 0) return 1;        // base case คือ เมื่อ n เป็น 0 ให้คืนค่า 1
@@ -122,7 +130,7 @@ int factorial(int n) {
 
 int main() {
     int num = 5;
-    printf("%d! = %d\n", num, factorial(num)); // จะได้ output คือ "5! = 120"
+    cout << num << "! = " << factorial(num) << '\n', num, factorial(num)); // จะได้ output คือ "5! = 120"
     return 0;
 }
 ```
