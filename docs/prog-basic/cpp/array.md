@@ -21,7 +21,21 @@ for (int i = 0; i <= 9; i++) { // วนตั้งแต่ 0-9
 ```
 ## String
 
-!unfinished
+ใน C++ เรามี Library ที่ชื่อว่า `string` ซึ่งทรงพลังและใช้ง่ายกว่า `char[]` ของ C มาก เนื่องจากมีฟังก์ชันสำเร็จรูปให้ใช้งานได้ โดยไม่ต้องเขียนเองใหม่ โดย string จะทำหน้าที่เหมือนกับ Array ของ `char` ซึ่งเราสามารถ access แต่ละตัวของ string ได้เหมือนกับ Array นอกจากนี้ เราสามารถรับค่าของ `string` ได้โดยการ `cin` ทั้งประโยค เหมือนกับ Variable ทั่วไปเลย
+
+```cpp
+#include <iostream> // Library Input Output
+#include <string> // Library String
+
+using namespace std;
+
+int main() {
+    string sentence = "Hello, "; // ประกาศ string ชื่อ sentence
+    string Name; // ประกาศ string ชื่อ Name
+    cin >> Name; // รับค่า Name
+    cout << sentence << Name; // จะส่งออก "Hello, [Name]" เมื่อ [Name] คือค่าของ Name ที่รับเข้ามา
+}
+```
 
 ## 2D Array
 และ Array นอกจากจะทำด้วย Variable ต่าง ๆ ได้ เราเองก็สามารถทำ **"Array of Array"** ซึ่งเนื่องจากเราเก็บเป็น Array ของ Array ทำให้เป็นเหมือนกับการเก็บแถว หลาย ๆ แถว กลายเป็นตาราง 2 มิติ เราจึงเรียกมันว่า **2D Array** นั่นเอง
