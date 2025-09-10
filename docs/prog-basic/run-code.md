@@ -1,6 +1,7 @@
 ---
 title: วิธีการรันโปรแกรม
 author: Pakin Olanraktham
+level:
 ---
 
 ## การรันโค้ดภายในเครื่อง (Running Code Locally)

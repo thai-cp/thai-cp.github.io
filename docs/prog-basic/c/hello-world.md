@@ -1,6 +1,7 @@
 ---
 title: Hello, World!
 author: Pakin Olanraktham
+level:
 ---
 
 ```c

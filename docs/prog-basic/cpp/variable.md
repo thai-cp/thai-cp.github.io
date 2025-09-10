@@ -1,6 +1,7 @@
 ---
 title: ตัวแปร ชนิดข้อมูล และตัวดำเนินการ
 author: Pakin Olanraktham
+level:
 ---
 
 ## ตัวแปรคืออะไร

@@ -1,6 +1,7 @@
 ---
 title: Binary Search
 author: njoop
+level: 
 ---
 
 ## Binary Search คืออะไร

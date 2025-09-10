@@ -25,7 +25,7 @@ nav:
       - คำสั่ง if - else: prog-basic/cpp/if-else.md
       - คำสั่งวนซ้ำ (For Loop): prog-basic/cpp/for-loop.md
       - ตัวแปรชุด และสายอักขระ: prog-basic/cpp/array.md
-      - ฟังก์ชัน: prog-basic/c/function.md
+      - ฟังก์ชัน: prog-basic/cpp/function.md
   - อัลกอริทึมพื้นฐาน:
       - Binary Search: algorithm-basic/binary-search.md
   - โจทย์: problems/index.md
