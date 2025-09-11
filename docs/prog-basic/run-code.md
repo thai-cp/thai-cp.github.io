@@ -35,7 +35,7 @@ level:
 3. ใน Terminal (ที่พึ่งเปิดขึ้นมาของ MSYS2) ให้รัน
 
 ```shell
-pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
+pacman -S --needed base-devel mingw-w64-ucrt-x86_64-gcc
 ```
 
 4. กด Enter เมื่อถามว่า `Enter a selection (default=all)` แล้วจึงกด Y หากถามว่าจะทำต่อหรือไม่ จนเสร็จสิ้น
@@ -65,7 +65,7 @@ gdb --version
 
 **การติดตั้ง Compiler**
 
-1. รัน `sudo apt-get update && sudo apt-get install build-essential gbd`
+1. รัน `sudo apt-get update && sudo apt-get install build-essential gdb`
 
 ### MacOS
 
