@@ -14,7 +14,9 @@ level:
 2. Code::Blocks (ไม่แนะนำ เนื่องจาก Crash ง่ายและบ่อย)
 
 ## การลงโปรแกรม Visual Studio Code และการ Set Up
+
 ### Windows
+
 **การติดตั้ง VS Code**
 
 1. ไปที่ [Visual Studio Code](https://code.visualstudio.com/download)
@@ -31,21 +33,25 @@ level:
 1. ดาวน์โหลด [MinGW-w64](https://github.com/msys2/msys2-installer/releases/download/2024-12-08/msys2-x86_64-20241208.exe)
 2. รัน Installer ของ MinGW และทำตามขั้นตอน เมื่อเสร็จสิ้น ให้ช่อง "Run MSYS2 now" ถูกเลือกอยู่ด้วย แล้วจึงกด "Finish"
 3. ใน Terminal (ที่พึ่งเปิดขึ้นมาของ MSYS2) ให้รัน
+
 ```shell
 pacman -S --needed base-devel mingw-w64-ucrt-x86_64-toolchain
 ```
+
 4. กด Enter เมื่อถามว่า `Enter a selection (default=all)` แล้วจึงกด Y หากถามว่าจะทำต่อหรือไม่ จนเสร็จสิ้น
 5. เปิด Settings แล้วค้นหาว่า "Edit environment variables for your account"
 6. ใน "User variables" ให้เลือก "Path" แล้วกด "Edit"
 7. เลือก "New" และเพิ่มที่อยู่ของ MinGW-w64 (หากตั้งค่าเป็น default ให้เลือก `C:\msys64\ucrt64\bin`)
 8. กด "OK" และ "OK" อีกรอบใน "Environment Variables"
 9. ตรวจสอบว่าลงสำเร็จหรือไม่ โดยพิมพ์คำสั่งต่อไปนี้ลงใน Command Prompt
+
 ```bash
 gcc --version
 g++ --version
 gdb --version
 ```
-หากติดตั้งสำเร็จ จะได้ version ของ GCC, g++, GDB 
+
+หากติดตั้งสำเร็จ จะได้ version ของ GCC, g++, GDB
 
 ### Linux (Ubuntu)
 
@@ -54,8 +60,8 @@ gdb --version
 1. ไปที่ [Visual Studio Code](https://code.visualstudio.com/download)
 2. ดาวน์โหลดเวอร์ชันสำหรับ Linux (เลือก .deb)
 3. รัน `sudo apt install ./path/to/file.deb` โดยแก้ `path/to/file.deb` เป็นชื่อไฟล์ที่ดาวน์โหลดมา
-5. เปิด VS Code
-6. ดาวน์โหลด Extension "C/C++ extension for VS Code"
+4. เปิด VS Code
+5. ดาวน์โหลด Extension "C/C++ extension for VS Code"
 
 **การติดตั้ง Compiler**
 
