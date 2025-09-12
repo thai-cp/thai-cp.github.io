@@ -54,7 +54,7 @@ class Preprocessor(Preprocessor):
                     meta = yaml.safe_load("".join(meta_lines)) or {}
 
                     title = meta.get("title", pid)
-                    if title == None:
+                    if title is None:
                         title = pid
                     source = meta.get("source")
                     difficulty = meta.get("difficulty", "?")
