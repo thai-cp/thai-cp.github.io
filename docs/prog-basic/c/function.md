@@ -351,6 +351,99 @@ factorial(5)
 * `scanf("%d", &x);`
 * `printf("%d\n", x);`
 
+### `stdlib.h` (Commonly Used Functions)
+
+!resources [(อ่านเพิ่มเติม, https://www.w3schools.com/c/c_ref_stdlib.php, W3Schools)]
+
+เป็น Library ที่มีฟังก์ชั่นที่พบได้บ่อยๆ เช่น
+
+* `abs(x)` คืนค่าสัมบูรณ์ของจำนวนเต็ม (ชนิด `int`)  เช่น `abs(-5)` จะได้ `5`  (ถ้าเป็นทศนิยมให้ใช้ `fabs` ซึ่งอยู่ใน `math.h`)
+* `atoi(str)` แปลงสตริงเป็นจำนวนเต็ม (`int`)
+* `atof(str)` แปลงสตริงเป็นทศนิยมแบบ `double`
+* `atoll(str)` แปลงสตริงเป็นจำนวนเต็มแบบ `long long`
+* `qsort(base, n, size, compar)` ฟังก์ชันสำหรับเรียงลำดับ ซึ่งเราต้องส่ง pointer ของอาเรย์ จำนวนสมาชิก ขนาดของแต่ละสมาชิก และฟังก์ชันเปรียบเทียบ
+
+ตัวอย่างการใช้งานเบื้องต้น
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    printf("abs(-12) = %d\n", abs(-12));          // 12
+
+    char a[] = "123";
+    char b[] = "3.14159";
+    char c[] = "900000000000";
+
+    int ai = atoi(a);           // 123
+    double bd = atof(b);        // 3.141590
+    long long cll = atoll(c);   // 900000000000
+
+    printf("ai=%d bd=%.2f cll=%lld\n", ai, bd, cll);
+}
+```
+
+### การใช้ `qsort`
+
+รูปแบบการใช้งาน
+
+```c
+void qsort(
+    void *base,          // ตำแหน่งเริ่มอาเรย์
+    size_t nitems,       // จำนวนสมาชิก
+    size_t size,         // ขนาดของหนึ่งสมาชิก เช่น sizeof(int)
+    int (*compar)(const void *, const void *) // ฟังก์ชันเปรียบเทียบ
+);
+```
+
+ฟังก์ชันเปรียบเทียบต้องคืนค่า:
+
+* `< 0` ถ้า a ควรมาก่อน b
+* `= 0` ถ้าเท่ากัน (ลำดับไม่สำคัญ)
+* `> 0` ถ้า a ควรมาหลัง b
+
+ตัวอย่าง: เรียงอาเรย์จำนวนเต็มจากน้อยไปมาก แล้วจากมากไปน้อย
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int cmp_asc(const void *p1, const void *p2) {
+    int a = *(const int*)p1;
+    int b = *(const int*)p2;
+    return a - b; // น้อยไปมาก
+}
+
+int cmp_desc(const void *p1, const void *p2) {
+    int a = *(const int*)p1;
+    int b = *(const int*)p2;
+    return b - a; // มากไปน้อย (สลับลำดับ)
+}
+
+int main() {
+    int asc[] = {5, 2, 9, 1, 5, 6};
+    int desc[] = {5, 2, 9, 1, 5, 6};
+    int n = sizeof(asc)/sizeof(asc[0]);
+
+    qsort(asc, n, sizeof(int), cmp_asc);
+    qsort(desc, n, sizeof(int), cmp_desc);
+
+    printf("Ascending : ");
+    for(int i=0;i<n;i++) printf("%d ", asc[i]);
+    printf("\n");
+
+    printf("Descending: ");
+    for(int i=0;i<n;i++) printf("%d ", desc[i]);
+    printf("\n");
+}
+/*
+ผลลัพธ์
+Ascending : 1 2 5 5 6 9 
+Descending: 9 6 5 5 2 1
+*/
+```
+
 ### `math.h` (Math Functions)
 
 !resources [(อ่านเพิ่มเติม, https://en.cppreference.com/w/c/header/math.html, CPP Reference)]
@@ -361,6 +454,7 @@ factorial(5)
 * `pow(x, y)` คำนวณเลขยกกำลัง $x^y$
 * `fabs(x)` หาค่าสัมบูรณ์ $|x|$
 * `fmin(x, y)`, `fmax(x, y)` หาค่าน้อยสุด/มากสุด ตามลำดับ
+* `M_PI` เป็นค่าคงที่ของ PI ทศนิยม 36 ตำแหน่ง
 
 โดยที่ฟังก์ชันข้างต้นทั้งหมด จะคืนค่าออกมาเป็น float และ parameter ของฟังก์ชัน สามารถใส่ได้ทั้ง int และ float (x, y อาจเป็น int หรือ float ก็ได้)
 
@@ -375,22 +469,52 @@ int main() {
     printf("%.2f\n", fabs(-728)); // 728.00
 }
 ```
+
+### `ctype.h` (Char Functions)
+
+!resources [(อ่านเพิ่มเติม, https://www.w3schools.com/c/c_ref_ctype.php, W3Schools)]
+
+เป็น Library ซึ่งมีฟังก์ชันสำหรับการทำงานเกี่ยวกับ char เช่น
+
+* `islower(c)` / `isupper(c)` เป็นการตรวจสอบว่า c เป็นตัวอักษรพิมพ์เล็ก / พิมพ์ใหญ่ไหม
+* `tolower(c)` / `toupper(c)` เป็นการเปลี่ยน c ให้เป็นตัวอักษรพิมพ์เล็ก / พิมพ์ใหญ่
+* `isalpha(c)` เป็นการตรวจสอบว่า c เป็นตัวอักษรภาษาอังกฤษไหม
+* `isdigit(c)` เป็นการตรวจสอบว่า c เป็นเลขไหม
+
+```c
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char c = 'A';
+    if(islower(c)) 
+        printf("Lower! ");
+    else 
+        printf("Upper! ");
+    printf("%c",tolower(c));
+    //จะได้ Upper a
+}
+```
+
 ### `string.h` (String Functions)
 
 เป็น Library ซึ่งมีฟังก์ชันสำหรับการทำงานเกี่ยวกับ string
 
 * `strlen(s)` หาความยาว string (จะนับจากตัวแรกจนถึง '\0' ไม่ได้นับความยาวของ Array เช่น `char str[5] = "IJK";` จะคืนค่า 3)
 * `strcmp(a, b)` เป็นการเทียบสตริง
-    * หาก a มาก่อน b ตามลำดับพจนานุกรม จะคืนค่าที่น้อยกว่า 0
-    * หาก a เหมือนกับ b (เป็น string เดียวกัน) จะคืนค่า 0
-    * หาก a มาหลัง b ตามลำดับพจนานุกรม จะคืนค่าที่มากกว่า 0
-* `strcpy(dest, src)` คือการ copy string ของ src ไปใส่ dest เช่น 
+  * หาก a มาก่อน b ตามลำดับพจนานุกรม จะคืนค่าที่น้อยกว่า 0
+  * หาก a เหมือนกับ b (เป็น string เดียวกัน) จะคืนค่า 0
+  * หาก a มาหลัง b ตามลำดับพจนานุกรม จะคืนค่าที่มากกว่า 0
+* `strcpy(dest, src)` คือการ copy string ของ src ไปใส่ dest เช่น
+
 ```c
 char dest[5] = "abcd", src[5] = "mno";
 strcpy(dest, src);
 printf("%s\n", dest); // จะได้ "mno"
 ```
+
 * `strcat(dest, src)` คือการนำ string ของ src ไปต่อกับ dest เช่น
+
 ```c
 char dest[10] = "abcd", src[3] = "efg";
 strcat(dest, src);
