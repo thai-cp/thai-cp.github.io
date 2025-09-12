@@ -2,21 +2,32 @@ import re
 import yaml
 import os
 from pathlib import Path
-from markdown.extensions import Extension
-from markdown.preprocessors import Preprocessor
+from markdown.extensions import Extension as MDXExtension
+from markdown.preprocessors import Preprocessor as MDXPreprocessor
+
+_NAT_SPLIT_RE = re.compile(r"(\d+)")
 
 
-class Extension(Extension):
+def natural_sort_key(s: str):
+    return [
+        int(chunk) if chunk.isdigit() else chunk.lower()
+        for chunk in _NAT_SPLIT_RE.split(s)
+    ]
+
+
+class ProblemAllExtension(MDXExtension):
     def __init__(self, problems_dir="docs/problems", **kwargs):
         self.problems_dir = Path(problems_dir)
         super().__init__(**kwargs)
 
     def extendMarkdown(self, md):
         md.registerExtension(self)
-        md.preprocessors.register(Preprocessor(self.problems_dir), "problem_all", 175)
+        md.preprocessors.register(
+            ProblemAllPreprocessor(self.problems_dir), "problem_all", 175
+        )
 
 
-class Preprocessor(Preprocessor):
+class ProblemAllPreprocessor(MDXPreprocessor):
     tag = re.compile(r"!problem_all")
 
     def __init__(self, problems_dir):
@@ -36,12 +47,6 @@ class Preprocessor(Preprocessor):
 
     def build_card(self):
         rows = []
-
-        def sort_key(s: str):
-            return [
-                int(text) if text.isdigit() else text.lower()
-                for text in re.split(r"(\d+)", s)
-            ]
 
         problems = []
         for f in os.listdir(self.problems_dir):
@@ -87,7 +92,7 @@ class Preprocessor(Preprocessor):
                 }
             )
 
-        problems.sort(key=lambda x: sort_key(x["pid"]))
+        problems.sort(key=lambda x: natural_sort_key(x["pid"]))
 
         for p in problems:
             pid = p["pid"]
@@ -104,7 +109,7 @@ class Preprocessor(Preprocessor):
             rows.append(f"    **Source**: {source}")
             rows.append(f"    **Difficulty**: {difficulty}")
             rows.append(
-                f'    <a href="/problems/{pid}" target="_blank" rel="noopener noreferrer">**View Solution** :material-open-in-new:</a>'
+                f'    <a href="/problems/{pid}/" target="_blank" rel="noopener noreferrer">**View Solution** :material-open-in-new:</a>'
             )
 
         table = '<div class="grid cards" markdown>'
@@ -114,4 +119,4 @@ class Preprocessor(Preprocessor):
 
 
 def makeExtension(**kwargs):
-    return Extension(**kwargs)
+    return ProblemAllExtension(**kwargs)
