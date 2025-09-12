@@ -129,7 +129,7 @@ for (int i = 1; i <= m; i++) {
 
 โดยทั่วไป (ภายใต้ time limit ประมาณ 1 วินาที ในภาษา C++) จะรองรับได้ประมาณนี้:
 
-| ขนาด $n$ (สูงสุด) | Complexities ที่ยังพอเป็นไปได้ |
+| ขนาด $n$ | Complexities ที่ยังพอเป็นไปได้ |
 |--------------------|----------------------------------|
 | $\le 10$ | $\mathcal{O}(n!)$, $\mathcal{O}(n^7)$, $\mathcal{O}(n^6)$ |
 | $\le 20$ | $\mathcal{O}(2^n\times n)$, $\mathcal{O}(n^5)$ |
@@ -140,6 +140,9 @@ for (int i = 1; i <= m; i++) {
 | $\le 5 \times 10^5$ | $\mathcal{O}(n \log n)$ |
 | $\le 5 \times 10^6$ | $\mathcal{O}(n)$ |
 | $\le 10^{18}$ | $\mathcal{O}(\log^2 n)$, $\mathcal{O}(\log n)$, $\mathcal{O}(1)$ |
+
+!!! info "อ้างอิงจาก"
+    [USACO Guide](https://usaco.guide/bronze/time-comp)
 
 ## Constant Factor คืออะไร
 
