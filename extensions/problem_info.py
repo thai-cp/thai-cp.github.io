@@ -52,7 +52,7 @@ class Preprocessor(Preprocessor):
 
                 source = meta.get("source")
                 difficulty = meta.get("difficulty", "?")
-                if difficulty == None:
+                if difficulty is None:
                     difficulty = "?"
                 link = meta.get("link")
                 extsol = meta.get("extsol", None)
