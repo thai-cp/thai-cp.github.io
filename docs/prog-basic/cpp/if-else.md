@@ -75,7 +75,7 @@ int main() {
 
 รับเลข 1–7 แล้วพิมพ์ชื่อย่อของวัน (จันทร์–อาทิตย์)
 
-```c
+```cpp
 #include <iostream>
 
 using namespace std;
