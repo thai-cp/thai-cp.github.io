@@ -28,6 +28,7 @@ nav:
       - ฟังก์ชัน: prog-basic/cpp/function.md
   - อัลกอริทึมพื้นฐาน:
       - Binary Search: algorithm-basic/binary-search.md
+      - Complexity Analysis: algorithm-basic/complexity.md
   - โจทย์: problems/index.md
 
 theme:
