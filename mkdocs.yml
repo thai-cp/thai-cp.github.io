@@ -26,9 +26,11 @@ nav:
       - คำสั่งวนซ้ำ (For Loop): prog-basic/cpp/for-loop.md
       - ตัวแปรชุด และสายอักขระ: prog-basic/cpp/array.md
       - ฟังก์ชัน: prog-basic/cpp/function.md
+      # - STL : prog-basic/cpp/stl.md
   - อัลกอริทึมพื้นฐาน:
       - Binary Search: algorithm-basic/binary-search.md
       - Complexity Analysis: algorithm-basic/complexity.md
+      # - Sorting Algorithms: algorithm-basic/sorting.md
   - โจทย์: problems/index.md
 
 theme:

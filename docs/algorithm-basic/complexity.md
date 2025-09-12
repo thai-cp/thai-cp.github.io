@@ -4,7 +4,7 @@ author: Pakin Olanraktham & Pasit Sangprachathanarak
 level: 
 ---
 
-!resources [(Time Complexity, https://usaco.guide/bronze/time-comp, USACO), (Time complexity (ใช้อ้างอิงบทเรียนนี้), https://usaco.guide/CPH.pdf#page=27, CPH)]
+!resources [(Time Complexity (ใช้อ้างอิงบทเรียนนี้), https://usaco.guide/bronze/time-comp, USACO), (Time complexity (ใช้อ้างอิงบทเรียนนี้), https://usaco.guide/CPH.pdf#page=27, CPH)]
 
 เนื่องจากใน Competitive Programming เราต้องการโปรแกรมที่มีประสิทธิภาพดี นั่นคือโปรแกรมสามารถทำงานได้อย่างรวดเร็ว หากโปรแกรมทำงานช้าเกินไป อาจโดนตัดคะแนน หรือไม่ได้คะแนนเลยก็ได้
 
