@@ -24,7 +24,7 @@ class UnfinishedTagPreprocessor(MDXPreprocessor):
                 new_lines.append(line)
         return new_lines
 
-    def build_tag(self):
+    def build_tag(self) -> str:
         return (
             '!!! failure "บทเรียนนี้ยังไม่สมบูรณ์"\n'
             '    หากใครต้องการช่วยเหลือ สามารถส่ง Pull Request มาได้ทาง <a href="https://github.com/thai-cp/thai-cp.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>'
