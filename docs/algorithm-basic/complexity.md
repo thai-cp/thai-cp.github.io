@@ -132,7 +132,7 @@ for (int i = 1; i <= m; i++) {
 | ขนาด $n$ (สูงสุด) | Complexities ที่ยังพอเป็นไปได้ |
 |--------------------|----------------------------------|
 | $\le 10$ | $\mathcal{O}(n!)$, $\mathcal{O}(n^7)$, $\mathcal{O}(n^6)$ |
-| $\le 20$ | $\mathcal{O}(2^n n)$, $\mathcal{O}(n^5)$ |
+| $\le 20$ | $\mathcal{O}(2^n\times n)$, $\mathcal{O}(n^5)$ |
 | $\le 80$ | $\mathcal{O}(n^4)$ |
 | $\le 400$ | $\mathcal{O}(n^3)$ |
 | $\le 7.5 \times 10^3$ | $\mathcal{O}(n^2)$ |
