@@ -4,6 +4,7 @@ from pathlib import Path
 from markdown.extensions import Extension
 from markdown.preprocessors import Preprocessor
 
+
 class Extension(Extension):
     def __init__(self, problems_dir="docs/problems", **kwargs):
         self.problems_dir = Path(problems_dir)
@@ -11,9 +12,8 @@ class Extension(Extension):
 
     def extendMarkdown(self, md):
         md.registerExtension(self)
-        md.preprocessors.register(
-            Preprocessor(self.problems_dir), 'problem_info', 175
-        )
+        md.preprocessors.register(Preprocessor(self.problems_dir), "problem_info", 175)
+
 
 class Preprocessor(Preprocessor):
     tag = re.compile(r"!problem_info\s+(\S+)")
@@ -52,7 +52,8 @@ class Preprocessor(Preprocessor):
 
                 source = meta.get("source")
                 difficulty = meta.get("difficulty", "?")
-                if (difficulty == None): difficulty = '?'
+                if difficulty == None:
+                    difficulty = "?"
                 link = meta.get("link")
                 extsol = meta.get("extsol", None)
                 fsource = meta.get("fsource", None)
@@ -61,14 +62,26 @@ class Preprocessor(Preprocessor):
                 prereq = meta.get("prereq", None)
 
             rows.append('!!! note ""')
-            rows.append(f'    <a href="{link}" target="_blank" rel="noopener noreferrer">**View Problem Statement** :material-open-in-new:</a>\n')
-            rows.append(f'    **Source**: {fsource if fsource else source}\n')
-            if (difficulty) : rows.append(f'    **Difficulty**: {difficulty}\n')
-            if (tags): rows.append(f'    **Tags**: {", ".join(tags)}\n')
-            if (prereq): rows.append(f'    **Prerequisites**:\n\n' + "".join(f'    - {p}\n' for p in prereq))
-            if (extsol) : rows.append(f'    <a href="{extsol}" target="_blank" rel="noopener noreferrer">**View External Solution** :material-open-in-new:</a>\n')
+            rows.append(
+                f'    <a href="{link}" target="_blank" rel="noopener noreferrer">**View Problem Statement** :material-open-in-new:</a>\n'
+            )
+            rows.append(f"    **Source**: {fsource if fsource else source}\n")
+            if difficulty:
+                rows.append(f"    **Difficulty**: {difficulty}\n")
+            if tags:
+                rows.append(f"    **Tags**: {', '.join(tags)}\n")
+            if prereq:
+                rows.append(
+                    f"    **Prerequisites**:\n\n"
+                    + "".join(f"    - {p}\n" for p in prereq)
+                )
+            if extsol:
+                rows.append(
+                    f'    <a href="{extsol}" target="_blank" rel="noopener noreferrer">**View External Solution** :material-open-in-new:</a>\n'
+                )
 
             return "\n".join(rows)
-    
+
+
 def makeExtension(**kwargs):
     return Extension(**kwargs)
