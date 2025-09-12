@@ -67,7 +67,7 @@ class Preprocessor(Preprocessor):
                 if link
                 else title
             )
-            solution_cell = f'<a href="/problems/{pid}" target="_blank" rel="noopener noreferrer">View</a>'
+            solution_cell = f'<a href="/problems/{pid}/" target="_blank" rel="noopener noreferrer">View</a>'
 
             rows.append(
                 f"| {problem_cell} | {source} | {difficulty} | {solution_cell} |"
