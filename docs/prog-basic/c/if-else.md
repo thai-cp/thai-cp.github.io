@@ -48,49 +48,45 @@ switch (expression) {
     - ไม่สามารถมี `case` ซ้ำกันได้
     - `default` จะอยู่ตำแหน่งไหนก็ได้ (นิยมไว้ท้ายสุด) และมีได้แค่หนึ่งอัน
 
-### ตัวอย่าง `if - else`
+!!! note "โจทย์ตัวอย่าง"
+    จงรับเลข 1–7 แล้วพิมพ์ชื่อของวันนั้นๆ (จันทร์–อาทิตย์)
+??? note "เฉลย `if - else`"
+    ```c
+    #include <stdio.h>
 
-รับเลข 1–7 แล้วพิมพ์ชื่อย่อของวัน (จันทร์–อาทิตย์)
-
-```c
-#include <stdio.h>
-
-int main() {
-    int d;
-    scanf("%d", &d);
-    if(d == 1) printf("Monday");
-    else if(d == 2) printf("Tuesday");
-    else if(d == 3) printf("Wednesday");
-    else if(d == 4) printf("Thursday");
-    else if(d == 5) printf("Friday");
-    else if(d == 6) printf("Saturday");
-    else if(d == 7) printf("Sunday");
-    else printf("Invalid");
-}
-```
-
-### ตัวอย่าง `switch`
-
-รับเลข 1–7 แล้วพิมพ์ชื่อย่อของวัน (จันทร์–อาทิตย์)
-
-```c
-#include <stdio.h>
-
-int main() {
-    int d;
-    scanf("%d", &d);
-    switch (d) {
-        case 1: printf("Monday"); break;
-        case 2: printf("Tuesday"); break;
-        case 3: printf("Wednesday"); break;
-        case 4: printf("Thursday"); break;
-        case 5: printf("Friday"); break;
-        case 6: printf("Saturday"); break;
-        case 7: printf("Sunday"); break;
-        default: printf("Invalid");
+    int main() {
+        int d;
+        scanf("%d", &d);
+        if(d == 1) printf("Monday");
+        else if(d == 2) printf("Tuesday");
+        else if(d == 3) printf("Wednesday");
+        else if(d == 4) printf("Thursday");
+        else if(d == 5) printf("Friday");
+        else if(d == 6) printf("Saturday");
+        else if(d == 7) printf("Sunday");
+        else printf("Invalid");
     }
-}
-```
+    ```
+
+??? note "เฉลย `switch`"
+    ```c
+    #include <stdio.h>
+
+    int main() {
+        int d;
+        scanf("%d", &d);
+        switch (d) {
+            case 1: printf("Monday"); break;
+            case 2: printf("Tuesday"); break;
+            case 3: printf("Wednesday"); break;
+            case 4: printf("Thursday"); break;
+            case 5: printf("Friday"); break;
+            case 6: printf("Saturday"); break;
+            case 7: printf("Sunday"); break;
+            default: printf("Invalid");
+        }
+    }
+    ```
 
 !!! warning "ข้อผิดพลาดที่พบบ่อย"
     - ลืม `break;` โดยไม่ได้ตั้งใจ ทำให้ทำงานหลาย `case` ต่อเนื่อง

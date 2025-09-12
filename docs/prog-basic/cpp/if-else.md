@@ -48,53 +48,49 @@ switch (expression) {
     - ไม่สามารถมี `case` ซ้ำกันได้
     - `default` จะอยู่ตำแหน่งไหนก็ได้ (นิยมไว้ท้ายสุด) และมีได้แค่หนึ่งอัน
 
-### ตัวอย่าง `if - else`
+!!! note "โจทย์ตัวอย่าง"
+    จงรับเลข 1–7 แล้วพิมพ์ชื่อของวันนั้นๆ (จันทร์–อาทิตย์)
+??? note "เฉลย `if - else`"
+    ```cpp
+    #include <iostream>
 
-รับเลข 1–7 แล้วพิมพ์ชื่อย่อของวัน (จันทร์–อาทิตย์)
+    using namespace std;
 
-```cpp
-#include <iostream>
-
-using namespace std;
-
-int main() {
-    int d;
-    cin >> d;
-    if(d == 1) cout << "Monday";
-    else if(d == 2) cout << "Tuesday";
-    else if(d == 3) cout << "Wednesday";
-    else if(d == 4) cout << "Thursday";
-    else if(d == 5) cout << "Friday";
-    else if(d == 6) cout << "Saturday";
-    else if(d == 7) cout << "Sunday";
-    else cout << "Invalid";
-}
-```
-
-### ตัวอย่าง `switch`
-
-รับเลข 1–7 แล้วพิมพ์ชื่อย่อของวัน (จันทร์–อาทิตย์)
-
-```cpp
-#include <iostream>
-
-using namespace std;
-
-int main() {
-    int d;
-    cin >> d;
-    switch (d) {
-        case 1: cout << "Monday"; break;
-        case 2: cout << "Tuesday"; break;
-        case 3: cout << "Wednesday"; break;
-        case 4: cout << "Thursday"; break;
-        case 5: cout << "Friday"; break;
-        case 6: cout << "Saturday"; break;
-        case 7: cout << "Sunday"; break;
-        default: cout << "Invalid";
+    int main() {
+        int d;
+        cin >> d;
+        if(d == 1) cout << "Monday";
+        else if(d == 2) cout << "Tuesday";
+        else if(d == 3) cout << "Wednesday";
+        else if(d == 4) cout << "Thursday";
+        else if(d == 5) cout << "Friday";
+        else if(d == 6) cout << "Saturday";
+        else if(d == 7) cout << "Sunday";
+        else cout << "Invalid";
     }
-}
-```
+    ```
+
+??? note "เฉลย `switch`"
+    ```cpp
+    #include <iostream>
+
+    using namespace std;
+
+    int main() {
+        int d;
+        cin >> d;
+        switch (d) {
+            case 1: cout << "Monday"; break;
+            case 2: cout << "Tuesday"; break;
+            case 3: cout << "Wednesday"; break;
+            case 4: cout << "Thursday"; break;
+            case 5: cout << "Friday"; break;
+            case 6: cout << "Saturday"; break;
+            case 7: cout << "Sunday"; break;
+            default: cout << "Invalid";
+        }
+    }
+    ```
 
 !!! warning "ข้อผิดพลาดที่พบบ่อย"
     - ลืม `break;` โดยไม่ได้ตั้งใจ ทำให้ทำงานหลาย `case` ต่อเนื่อง
