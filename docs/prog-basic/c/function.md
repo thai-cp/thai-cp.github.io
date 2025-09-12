@@ -444,6 +444,14 @@ Descending: 9 6 5 5 2 1
 */
 ```
 
+### `stbool.h` (Boolean Function)
+
+ซึ่งก็คือ Library ซึ่งเพิ่มชนิดข้อมูล `bool` สามารถเก็บได้แค่ 2 ค่า `false` กับ `true` โดยมีขนาด 1 ไบต์
+
+* `bool a = 0;`
+* `a = true;`
+* `if(a) //do something`
+
 ### `math.h` (Math Functions)
 
 !resources [(อ่านเพิ่มเติม, https://en.cppreference.com/w/c/header/math.html, CPP Reference)]
