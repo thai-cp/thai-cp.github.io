@@ -4,15 +4,15 @@ from pathlib import Path
 from markdown.extensions import Extension
 from markdown.preprocessors import Preprocessor
 
+
 class Extension(Extension):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
     def extendMarkdown(self, md):
         md.registerExtension(self)
-        md.preprocessors.register(
-            Preprocessor(), 'resources_table', 175
-        )
+        md.preprocessors.register(Preprocessor(), "resources_table", 175)
+
 
 class Preprocessor(Preprocessor):
     tag = re.compile(r"!resources\s*\[(.+)\]")
@@ -43,12 +43,13 @@ class Preprocessor(Preprocessor):
     def build_table(self, triples):
         rows = []
         for title, link, source in triples:
-            title_cell = f"<a href=\"{link}\" target=\"_blank\" rel=\"noopener noreferrer\">{title}</a>"
+            title_cell = f'<a href="{link}" target="_blank" rel="noopener noreferrer">{title}</a>'
             rows.append(f"| {source} | {title_cell} |")
 
         table = "| Source | Resources |\n|-|-|\n"
         table += "\n".join(rows)
         return table
+
 
 def makeExtension(**kwargs):
     return Extension(**kwargs)

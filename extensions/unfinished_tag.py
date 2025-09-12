@@ -4,15 +4,15 @@ from pathlib import Path
 from markdown.extensions import Extension
 from markdown.preprocessors import Preprocessor
 
+
 class Extension(Extension):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
     def extendMarkdown(self, md):
         md.registerExtension(self)
-        md.preprocessors.register(
-            Preprocessor(), 'unfinished_tag', 175
-        )
+        md.preprocessors.register(Preprocessor(), "unfinished_tag", 175)
+
 
 class Preprocessor(Preprocessor):
     tag = re.compile(r"!unfinished")
@@ -34,8 +34,11 @@ class Preprocessor(Preprocessor):
     def build_tag(self):
         rows = []
         rows.append('!!! failure "บทเรียนนี้ยังไม่สมบูรณ์"')
-        rows.append('    หากใครต้องการช่วยเหลือ สามารถส่ง Pull Request มาได้ทาง <a href=\"https://github.com/thai-cp/thai-cp.github.io\" target=\"_blank\" rel=\"noopener noreferrer\">GitHub</a>')
+        rows.append(
+            '    หากใครต้องการช่วยเหลือ สามารถส่ง Pull Request มาได้ทาง <a href="https://github.com/thai-cp/thai-cp.github.io" target="_blank" rel="noopener noreferrer">GitHub</a>'
+        )
         return "\n".join(rows)
+
 
 def makeExtension(**kwargs):
     return Extension(**kwargs)

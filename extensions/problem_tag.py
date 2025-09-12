@@ -67,7 +67,6 @@ class Preprocessor(Preprocessor):
                 if link
                 else title
             )
-            # Add trailing slash so MkDocs doesn't issue a redirect (302) for directory-style URL
             solution_cell = f'<a href="/problems/{pid}/" target="_blank" rel="noopener noreferrer">View</a>'
 
             rows.append(
