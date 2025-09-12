@@ -33,7 +33,7 @@ class ResourcesTagPreprocessor(MDXPreprocessor):
             triples.append((title.strip(), link.strip(), source.strip()))
         return triples
 
-    def build_table(self, triples):
+    def build_table(self, triples) -> str | None:
         if not triples:
             return None
         rows = []
