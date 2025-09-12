@@ -58,7 +58,7 @@ class Preprocessor(Preprocessor):
                         title = pid
                     source = meta.get("source")
                     difficulty = meta.get("difficulty", "?")
-                    if difficulty == None:
+                    if difficulty is None:
                         difficulty = "?"
                     link = meta.get("link")
 
