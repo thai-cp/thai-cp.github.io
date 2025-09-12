@@ -337,3 +337,62 @@ factorial(5)
     หากลองรัน จะพบว่า โค้ดนี้จะไม่แสดงผลใดๆ และเกิดข้อผิดพลาดระหว่างการทำงาน
 
 !problems [prog-0019]
+
+## Built-in Fucntion
+
+!resources [(อ่านฟังก์ชันต่างๆ ได้เพิ่มที่นี่, https://en.cppreference.com/w/c.html, CPP Reference)]
+
+ในภาษา C เรามีฟังก์ชันสำเร็จรูป ที่สามารถนำมาใช้ได้ โดยที่เราไม่ต้องเขียนฟังก์ชันเอง ซึ่งก่อนจะใช้ เราต้อง import Library นั้นๆ มาก่อน โดย Library ที่ใช้หลักๆ ได้แก่
+
+### `stdio.h` (Input/Output)
+
+ซึ่งก็คือ Library ซึ่งมีฟังก์ชันสำหรับการนำเข้า ส่งออก ข้อมูลต่างๆ ที่เราเคยใช้กันอยู่แล้ว เช่น
+
+* `scanf("%d", &x);`
+* `printf("%d\n", x);`
+
+### `math.h` (Math Functions)
+
+!resources [(อ่านเพิ่มเติม, https://en.cppreference.com/w/c/header/math.html, CPP Reference)]
+
+เป็น Library ที่มีฟังก์ชันทางคณิตศาสตร์อยู่ เช่น
+
+* `sqrt(x)` หารากที่สอง
+* `pow(x, y)` คำนวณเลขยกกำลัง $x^y$
+* `fabs(x)` หาค่าสัมบูรณ์ $|x|$
+* `fmin(x, y)`, `fmax(x, y)` หาค่าน้อยสุด/มากสุด ตามลำดับ
+
+โดยที่ฟังก์ชันข้างต้นทั้งหมด จะคืนค่าออกมาเป็น float และ parameter ของฟังก์ชัน สามารถใส่ได้ทั้ง int และ float (x, y อาจเป็น int หรือ float ก็ได้)
+
+```cpp
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    printf("%.2f\n", fmin(5, 108)); // 5.00
+    printf("%.2f\n", pow(2, 10)); // 1024.00
+    printf("%.2f\n", sqrt(2)); // 1.41
+    printf("%.2f\n", fabs(-728)); // 728.00
+}
+```
+### `string.h` (String Functions)
+
+เป็น Library ซึ่งมีฟังก์ชันสำหรับการทำงานเกี่ยวกับ string
+
+* `strlen(s)` หาความยาว string (จะนับจากตัวแรกจนถึง '\0' ไม่ได้นับความยาวของ Array เช่น `char str[5] = "IJK";` จะคืนค่า 3)
+* `strcmp(a, b)` เป็นการเทียบสตริง
+    * หาก a มาก่อน b ตามลำดับพจนานุกรม จะคืนค่าที่น้อยกว่า 0
+    * หาก a เหมือนกับ b (เป็น string เดียวกัน) จะคืนค่า 0
+    * หาก a มาหลัง b ตามลำดับพจนานุกรม จะคืนค่าที่มากกว่า 0
+* `strcpy(dest, src)` คือการ copy string ของ src ไปใส่ dest เช่น 
+```c
+char dest[5] = "abcd", src[5] = "mno";
+strcpy(dest, src);
+printf("%s\n", dest); // จะได้ "mno"
+```
+* `strcat(dest, src)` คือการนำ string ของ src ไปต่อกับ dest เช่น
+```c
+char dest[10] = "abcd", src[3] = "efg";
+strcat(dest, src);
+printf("%s\n", dest); // จะได้ "abcdefg"
+```
