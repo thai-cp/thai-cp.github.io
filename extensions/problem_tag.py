@@ -1,24 +1,26 @@
 import re
 import yaml
 from pathlib import Path
-from markdown.extensions import Extension
-from markdown.preprocessors import Preprocessor
+from markdown.extensions import Extension as MDXExtension
+from markdown.preprocessors import Preprocessor as MDXPreprocessor
 
 
-class Extension(Extension):
+class ProblemTagExtension(MDXExtension):
     def __init__(self, problems_dir="docs/problems", **kwargs):
         self.problems_dir = Path(problems_dir)
         super().__init__(**kwargs)
 
     def extendMarkdown(self, md):
         md.registerExtension(self)
-        md.preprocessors.register(Preprocessor(self.problems_dir), "problem_table", 175)
+        md.preprocessors.register(
+            ProblemTagPreprocessor(self.problems_dir), "problem_table", 175
+        )
 
 
-class Preprocessor(Preprocessor):
+class ProblemTagPreprocessor(MDXPreprocessor):
     tag = re.compile(r"!problems\s*\[([^\]]+)\]")
 
-    def __init__(self, problems_dir):
+    def __init__(self, problems_dir: Path):
         super().__init__()
         self.problems_dir = problems_dir
 
@@ -29,7 +31,8 @@ class Preprocessor(Preprocessor):
             if match:
                 problem_ids = [p.strip() for p in match.group(1).split(",")]
                 html = self.build_table(problem_ids)
-                new_lines.append(html)
+                if html is not None:
+                    new_lines.append(html)
             else:
                 new_lines.append(line)
         return new_lines
@@ -51,15 +54,14 @@ class Preprocessor(Preprocessor):
                         if line.strip() == "---":
                             break
                         meta_lines.append(line)
-                    meta = yaml.safe_load("".join(meta_lines)) or {}
+                    try:
+                        meta = yaml.safe_load("".join(meta_lines)) or {}
+                    except yaml.YAMLError:
+                        meta = {}
 
-                    title = meta.get("title", pid)
-                    if title is None:
-                        title = pid
+                    title = meta.get("title", pid) or pid
                     source = meta.get("source")
-                    difficulty = meta.get("difficulty", "?")
-                    if difficulty is None:
-                        difficulty = "?"
+                    difficulty = meta.get("difficulty", "?") or "?"
                     link = meta.get("link")
 
             problem_cell = (
@@ -79,4 +81,4 @@ class Preprocessor(Preprocessor):
 
 
 def makeExtension(**kwargs):
-    return Extension(**kwargs)
+    return ProblemTagExtension(**kwargs)
