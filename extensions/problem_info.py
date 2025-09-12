@@ -37,7 +37,7 @@ class ProblemInfoPreprocessor(MDXPreprocessor):
                 new_lines.append(line)
         return new_lines
 
-    def build_info(self, pid: str):
+    def build_info(self, pid: str) -> str | None:
         rows = []
         file_path = self.problems_dir / f"{pid}.md"
 
