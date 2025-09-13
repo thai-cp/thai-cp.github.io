@@ -175,4 +175,183 @@ int main() {
 
     $1\leq t_i\leq 10^6$ สำหรับ $1\leq i\leq m$
 
-!unfinished
+Binary search on answer คือการเอาแนวคิด Binary Search มาใช้กับ *คำตอบ* โดยเราจะหาค่าคำตอบกลาง แล้วตรวจสอบว่าคำตอบกลางนั้น เพียงพอหรือยัง ถ้าเพียงพอ (หรือมากไป) ก็ลดช่วง ถ้าทำยังไม่พอ ก็ขยายช่วง คล้ายการถามว่า คำตอบนี้ผ่านเงื่อนไขหรือยัง แล้วไล่หาคำตอบที่เล็กที่สุด (หรือใหญ่ที่สุด) ที่ทำให้เงื่อนไขเป็นจริง
+
+### วิเคราะห์โจทย์
+
+ในเวลา $T$ นาที กุลีคนที่ $i$ จะขนของได้ $\left\lfloor \dfrac{T}{t_i} \right\rfloor$ ชิ้น (เพราะทุกๆ $t_i$ นาที ขนได้ 1 ชิ้น) ดังนั้นของทั้งหมดที่ขนได้รวมคือ
+
+$$ f(T) = \sum_{i=1}^{m} \left\lfloor \frac{T}{t_i} \right\rfloor $$
+
+สังเกตว่า $f(T)$ จะเพิ่มขึ้น เมื่อ $T$ เท่าเดิมหรือมากขึ้น (ไม่ลดลง) $f(T)$ จึงเป็นฟังก์ชันโมโนโทน
+
+โดยในโจทย์นี้เราต้องการหา $T$ ที่เล็กที่สุดที่ทำให้ $f(T) \geq n$
+
+!!! info "ฟังก์ชันโมโนโทนคืออะไร"
+    ฟังก์ชันโมโนโทน (Monotone Function) หมายถึงฟังก์ชันที่ค่าของมัน **ไม่ลดลง** หรือ **ไม่เพิ่มขึ้น** เมื่ออินพุตเพิ่มขึ้น  
+    - **โมโนโทนเพิ่ม (monotone increasing / non-decreasing):** ถ้า $x_1 < x_2$ แล้ว $f(x_1) \leq f(x_2)$  
+    - **โมโนโทนลด (monotone decreasing / non-increasing):** ถ้า $x_1 < x_2$ แล้ว $f(x_1) \geq f(x_2)$  
+
+    ในที่นี้ $f(T)$ เป็นฟังก์ชันโมโนโทนเพิ่ม เพราะเมื่อเวลา $T$ มากขึ้น จำนวนของที่ขนได้จะไม่ลดลง
+
+### กำหนดช่วงการค้นหา
+
+- เวลาน้อยที่สุดที่เป็นไปได้: 1 (ถ้า $n=0$ ก็เป็น 0 แต่ในโจทย์ $n\geq 1$)
+- เวลามากที่สุด: ถ้าเอากุลีที่ช้าที่สุดคนเดียวทำทั้งหมด ใช้เวลา $\max(t_i)\times n$ แต่เราจะเลือกช่วงที่ดีกว่านี้ โดยใช้กุลีที่เร็วที่สุด: เวลามากสุดไม่เกิน $\min(t_i)\times n$
+
+ดังนั้นตั้ง $L = 1$, $R = \min(t_i)\times n$
+
+### ขั้นตอนการ Binary Search on Answer
+
+1. ตั้ง $L = 1$, $R = \min(t_i)\times n$
+2. วนในขณะที่ $L < R$
+    - หาค่า $mid = (L + R) / 2$
+    - คำนวณ $f(mid)$ = จำนวนชิ้นที่ขนได้ภายในเวลา $mid$
+    - ถ้า $f(mid) \geq n$ แปลว่าเวลา $mid$ เพียงพอ อาจมีคำตอบที่น้อยกว่านี้ได้ ปรับ $R = mid - 1$
+    - ถ้า $f(mid) < n$ แปลว่ายังไม่พอ ต้องเพิ่มเวลา ปรับ $L = mid + 1$
+3. ตอนจบจะมี $L = R$ เป็นเวลาน้อยที่สุดที่ขนได้ครบ $n$ ชิ้น
+
+### ตัวอย่างที่ 1
+
+กุลี 2 คน: $t = [7, 12]$, ต้องขน $n = 5$ ชิ้น
+
+กำหนด $L = 1$, $R = 5\times 7 = 35$ (เพราะ $\min t_i = 7$)
+
+Binary Search on Answer :
+
+- mid = 18: ขนได้ $\lfloor18/7\rfloor+\lfloor18/12\rfloor = 2+1=3 < 5$ (ยังไม่พอ) ⇒ $L = 19$
+- mid = 22: ขนได้ $\lfloor22/7\rfloor+\lfloor22/12\rfloor = 3+1=4 < 5$ (ยังไม่พอ) ⇒ $L = 23$
+- mid = 29: ขนได้ $\lfloor29/7\rfloor+\lfloor29/12\rfloor = 4+2=6 \geq 5$ (หาค่าที่ดีกว่า) ⇒ $R = 29$
+- mid = 26: ขนได้ $\lfloor26/7\rfloor+\lfloor26/12\rfloor = 3+2=5 \geq 5$ (หาค่าที่ดีกว่า) ⇒ $R = 26$
+- mid = 24: ขนได้ $\lfloor24/7\rfloor+\lfloor24/12\rfloor = 3+2=5 \geq 5$ (หาค่าที่ดีกว่า) ⇒ $R = 24$
+- mid = 23: ขนได้ $\lfloor23/7\rfloor+\lfloor23/12\rfloor = 3+1=4 < 5$ (ยังไม่พอ) ⇒ $L = 24$
+
+สรุป $L = R = 24$ คำตอบคือ 24 นาที
+
+### ตัวอย่างที่ 2
+
+กุลี 3 คน: $t = [2, 6, 13]$, ต้องขน $n = 3$ ชิ้น
+
+กำหนด $L = 1$, $R = 2\times  3 = 6$ (เพราะ $\min t_i = 2$)
+
+Binary Search on Answer :
+
+- mid = 3: ขนได้ $\lfloor3/2\rfloor+\lfloor3/6\rfloor+\lfloor3/13\rfloor=1+0+0=1 < 3$ (ยังไม่พอ) ⇒ $L = 4$
+- mid = 5: ขนได้ $\lfloor5/2\rfloor+\lfloor5/6\rfloor+\lfloor5/13\rfloor=2+0+0=2 < 3$ (ยังไม่พอ) ⇒ $L = 6$
+
+สรุป $L = R = 6$ คำตอบคือ 6 นาที
+
+??? note "โค้ดเฉลย"
+    === "C"
+        ```c
+        #include <stdio.h>
+        #include <stdbool.h>
+
+        int t[1000005];
+        long long n;
+        int m;
+
+        bool check(long long x) {
+            long long ans = 0;
+            for (int i = 0; i < m; i++) {
+                ans += (x / t[i]);
+                if (ans >= n)
+                    return true;
+            }
+            return false;
+        }
+
+        int main() {
+            scanf("%d %lld", &m, &n);
+            long long mn_element = 1000000;
+            for (int i = 0; i < m; i++) {
+                scanf("%d", &t[i]);
+                if (t[i] < mn_element)
+                    mn_element = t[i];
+            }
+            long long l = 1, r = mn_element * n, ans = 0;
+            while (l < r) {
+                long long mid = (l + r) / 2;
+                if (check(mid)) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            printf("%lld", l);
+        }
+        ```
+    === "C++"
+        ```cpp
+        #include <iostream>
+        using namespace std;
+
+        int t[1000005];
+        long long n;
+        int m;
+
+        bool check(long long x) {
+            long long ans = 0;
+            for (int i = 0; i < m; i++) {
+                ans += (x / t[i]);
+                if (ans >= n)
+                    return true;
+            }
+            return false;
+        }
+
+        int main() {
+            ios::sync_with_stdio(false);
+            cin.tie(nullptr);
+            cin >> m >> n;
+            long long mn_element = 1000000;
+            for (int i = 0; i < m; i++) {
+                cin >> t[i];
+                if(t[i] < mn_element)
+                    mn_element = t[i];
+            }
+            long long l = 1, r = mn_element * n, ans = 0;
+            while (l < r) {
+                long long mid = (l + r) / 2;
+                if (check(mid)) {
+                    r = mid;
+                } else {
+                    l = mid + 1;
+                }
+            }
+            cout << l;
+        }
+        ```
+
+### สรุป Time Complexity
+
+- ฟังก์ชันตรวจสอบ `check(mid)` ใช้เวลา $O(m)$
+- จำนวนรอบ binary search คือ $O(\log (m\times n))$
+- รวม: $O(m \log (m\times n))$ ซึ่งเพียงพอต่อความต้องการของโจทย์
+
+!!! warning "ข้อผิดพลาดที่เกิดขึ้นบ่อย"
+    1. การที่เราหาค่า mid โดยการใช้สมการ $(L+R)/2$ อาจทำให้เกิด overflow ขึ้นได้ เพราะระหว่างการคำนวณ ค่า $(L+R)$ จะมีค่ามากกว่าทั้งค่า L และ R ที่โจทย์กำหนด โดยสามารถแก้ได้โดยการใช้สมการ $L + (R-L)/2$
+    2. $m\times n$ อาจมากถึง $10^{18}$ จึงจำเป็นต้องใช้ `long long`
+
+### รูปแบบ Binary Search on Answer ทั่วไป
+
+```cpp
+long long l = MIN_POSSIBLE; // ค่าต่ำสุดที่คำตอบเป็นไปได้
+long long r = MAX_POSSIBLE; // ค่าสูงสุดที่คำตอบยังเป็นไปได้
+while(l < r) {
+    long long mid = l + (r - l) / 2; // candidate
+    if(check(mid)) { // mid ใช้ได้ไหม
+        r = mid;     // อยากหาตัวแรกที่จริง ลดช่วงลง
+    } else {
+        l = mid + 1; // ยังไม่พอ ต้องขยับไปทางขวา
+    }
+}
+// l คือคำตอบ
+```
+
+### ใช้กับโจทย์แบบไหนได้บ้าง
+
+- หา "ค่าน้อยที่สุด/มากที่สุด" ที่ทำให้เงื่อนไขผ่าน
+- ปัญหาเกี่ยวกับเวลา ความเร็ว ความจุ ความยาว ความสูง จำนวนเงิน ฯลฯ ที่เมื่อเพิ่มขึ้น/ลดลง แล้วทำให้สถานะเปลี่ยนจาก false → true
+
+!problems [TOI11-labor, CSES-Factory-Machines]
