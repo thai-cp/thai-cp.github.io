@@ -39,13 +39,13 @@ theme:
   logo: assets/logo.png
   favicon: assets/logo.png
   palette:
-    - scheme: slate
+    - scheme: default
       primary: green
       accent: light green
       toggle:
         icon: material/weather-night
         name: Switch to Light Mode
-    - scheme: default
+    - scheme: slate
       primary: green
       accent: light green
       toggle:
