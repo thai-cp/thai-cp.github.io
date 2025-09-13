@@ -1,7 +1,7 @@
 ---
 title: Binary Search
-author: njoop
-level: 
+author: njoop & Pasit Sangprachathanarak
+level: Normal
 ---
 
 ## Binary Search คืออะไร
