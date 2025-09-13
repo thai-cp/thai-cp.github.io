@@ -6,7 +6,7 @@ link: https://programming.in.th/tasks/toi18_shopping
 difficulty: Normal
 tags: [Binary search]
 author: 
-prereq: ["[Binary search](../algorithm-basic/binary-search.md)"]
+prereq: ["[Binary search](../dsa-basic/binary-search.md)"]
 extsol: https://programming.in.th/tasks/toi18_shopping/solution
 ---
 

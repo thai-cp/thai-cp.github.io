@@ -27,10 +27,10 @@ nav:
       - ตัวแปรชุด และสายอักขระ: prog-basic/cpp/array.md
       - ฟังก์ชัน: prog-basic/cpp/function.md
       # - STL : prog-basic/cpp/stl.md
-  - อัลกอริทึมพื้นฐาน:
-      - Complexity Analysis: algorithm-basic/complexity.md
-      - Binary Search: algorithm-basic/binary-search.md
-      - Sorting Algorithms: algorithm-basic/sorting.md
+  - โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน:
+      - Complexity Analysis: dsa-basic/complexity.md
+      - Binary Search: dsa-basic/binary-search.md
+      - Sorting Algorithms: dsa-basic/sorting.md
   - โจทย์: problems/index.md
 
 theme:

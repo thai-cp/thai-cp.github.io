@@ -10,7 +10,7 @@ level: Normal
 
 Sorting Algorithms หรืออัลกอริทึมการเรียงลำดับข้อมูล
 เป็นอัลกอริทึมที่ใช้เรียงลำดับข้อมูลจากมากไปน้อยหรือน้อยไปมากโดยอัลกอริทึมการเรียงลำ
-ดับข้อมูลที่ดีคสรทำงานในเวลา [$\mathcal{O}(n\log n)$](https://thai-cp.github.io/algorithm-basic/complexity/)
+ดับข้อมูลที่ดีคสรทำงานในเวลา [$\mathcal{O}(n\log n)$](https://thai-cp.github.io/dsa-basic/complexity/)
 
 ## Bubble Sort
 
@@ -37,5 +37,9 @@ for (int i = 0; i < n; i++) {
 
 !!! info "แหล่งที่มาวิดีโอ"
     วิดีโอตัวอย่างการทำงานของ Bubble Sort นำมาจาก [YouTube (ลิงก์ต้นฉบับ)](https://www.youtube.com/watch?v=0BkoXZBbhfU) เพื่อใช้ประกอบการเรียนรู้
+
+!unfinished
+
+## Merge Sort
 
 !unfinished
