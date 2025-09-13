@@ -35,4 +35,7 @@ for (int i = 0; i < n; i++) {
     </video>
 </div>
 
+!!! info "แหล่งที่มาวิดีโอ"
+    วิดีโอตัวอย่างการทำงานของ Bubble Sort นำมาจาก [YouTube (ลิงก์ต้นฉบับ)](https://www.youtube.com/watch?v=0BkoXZBbhfU) เพื่อใช้ประกอบการเรียนรู้
+
 !unfinished
