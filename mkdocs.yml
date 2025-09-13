@@ -28,8 +28,8 @@ nav:
       - ฟังก์ชัน: prog-basic/cpp/function.md
       # - STL : prog-basic/cpp/stl.md
   - อัลกอริทึมพื้นฐาน:
-      - Binary Search: algorithm-basic/binary-search.md
       - Complexity Analysis: algorithm-basic/complexity.md
+      - Binary Search: algorithm-basic/binary-search.md
       # - Sorting Algorithms: algorithm-basic/sorting.md
   - โจทย์: problems/index.md
 

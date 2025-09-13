@@ -4,7 +4,7 @@ author: Pakin Olanraktham & Pasit Sangprachathanarak
 level: 
 ---
 
-!resources [(Time Complexity (ใช้อ้างอิงบทเรียนนี้), https://usaco.guide/bronze/time-comp, USACO), (Time complexity (ใช้อ้างอิงบทเรียนนี้), https://usaco.guide/CPH.pdf#page=27, CPH)]
+!resources [(Time Complexity, https://usaco.guide/bronze/time-comp, USACO), (Time complexity, https://usaco.guide/CPH.pdf#page=27, CPH)]
 
 เนื่องจากใน Competitive Programming เราต้องการโปรแกรมที่มีประสิทธิภาพดี นั่นคือโปรแกรมสามารถทำงานได้อย่างรวดเร็ว หากโปรแกรมทำงานช้าเกินไป อาจโดนตัดคะแนน หรือไม่ได้คะแนนเลยก็ได้
 
@@ -32,7 +32,7 @@ int d = a + b + c + 153;
 
 ### ลูปเดี่ยว
 
-จำนวนรอบลูป = เวลา (ถ้าภายในเป็นงาน $\mathcal{O}(1)$)
+หากภายใน Loop มี Complexity $\mathcal{O}(1)$ และ Loop ทำงาน $n$ รอบ เราจะได้ Complexity รวมคือ $n\times\mathcal{O}(1)$ หรือก็คือ $\mathcal{O}(n)$
 
 ```cpp
 for (int i = 1; i <= n; i++) {
@@ -46,20 +46,16 @@ while (i < n) {
 }
 ```
 
-ทั้งสองกรณีเป็น $\mathcal{O}(n)$
-
-เรามองข้ามค่าคงที่กับเทอมเล็ก ดังนั้น:
+อย่าลืมว่า ค่าคงที่ ไม่มีผลต่อการคำนวน Complexity โดยโค้ดด้านล่าง ทั้งสอง ก็ยังคงมี Complexity เท่ากันคือ $\mathcal{O}(n)$ เหมือนเดิม
 
 ```cpp
 for (int i = 1; i <= 5*n + 17; i++) { /* O(1) */ }
 for (int i = 1; i <= n + 457737; i++) { /* O(1) */ }
 ```
 
-ก็ยังเป็น $\mathcal{O}(n)$
-
 ### ลูปซ้อน (Nested Loops)
 
-คูณกันตามจำนวนรอบของแต่ละลูป:
+เราจะใช้วิธีเดียวกับการคำนวน Complexity ของ Loop ปกติ
 
 ```cpp
 for (int i = 1; i <= n; i++) {
@@ -69,23 +65,12 @@ for (int i = 1; i <= n; i++) {
 }
 ```
 
-= $\mathcal{O}(n\times m)$
+จากโค้ดข้างต้น เรารู้ว่าลูปด้านใน มี Complexity เท่ากับ $\mathcal{O}(m)$ แต่ลูปนี้ ทำงาน $n$ รอบเนื่องจากมีลูปอีกอันครอบอยู่ ดังนั้น Complexity รวมจะเท่ากับ $n\times\mathcal{O}(m)$ หรือก็คือ $\mathcal{O}(nm)$ นั่นเอง
 
-กรณีจำนวนรอบลูปชั้นในขึ้นอยู่กับตัวแปรชั้นนอก:
 
-```cpp
-for (int i = 1; i <= n; i++) {
-    for (int j = i; j <= n; j++) {
-        // O(1)
-    }
-}
-```
+### หลายลูป
 
-ลูปในรันประมาณ $n + (n-1) + (n-2) + \dots + 1 = \frac{n(n+1)}{2} = \mathcal{O}(n^2)$
-
-### หลายบล็อกต่อกัน
-
-Complexity รวมคือ max ของแต่ละบล็อก:
+Complexity รวมคือ max ของแต่ละลูป:
 
 ```cpp
 for (int i = 1; i <= n; i++) {
@@ -98,7 +83,9 @@ for (int i = 1; i <= n + 58834; i++) {
 }
 ```
 
-บล็อกแรก $\mathcal{O}(n^2)$ บล็อกสอง $\mathcal{O}(n)$ ดังนั้นรวม = $\mathcal{O}(n^2)$
+ลูปแรก $\mathcal{O}(n^2)$ ลูปสอง $\mathcal{O}(n)$ ดังนั้นรวม = $\mathcal{O}(n^2)$
+
+### กรณีมี input หลายขนาด เช่น $n$ และ $m$
 
 ```cpp
 for (int i = 1; i <= n; i++) {
@@ -112,6 +99,31 @@ for (int i = 1; i <= m; i++) {
 ```
 
 รวม = $\mathcal{O}(n^2 + m)$ (ยังไม่สามารถตัดเหลือ $\max(n^2, m)$ ถ้าไม่รู้ความสัมพันธ์ระหว่าง $n$ กับ $m$)
+
+!!! note "คำแนะนำ"
+    ในทางปฏิบัติ เราไม่จำเป็นต้องย่อให้เหมือนเปะกับ Big O notation ที่กล่าวมาข้างต้นทั้งหมดก็ได้ เอาแค่ให้รู้คร่าวๆ ว่าโปรแกรมทำงานได้เร็วหรือช้าแค่ไหน เช่น $\mathcal{O}(n^2 + n)$ ก็สามารถที่จะรู้ได้แล้ว ว่าโปรแกรม สามารถทำงานได้ทัน ตามขอบเขตข้อมูลหรือไม่
+
+## Quiz
+
+จงหา Complexity (Big O) ของโค้ดดังต่อไปนี้
+
+```cpp
+for (int i = 1; i <= 12345; i++) {
+    // O(1)
+}
+```
+??? note "เฉลย"
+    ถ้าหากคุณตอบว่า $\mathcal{O}(12345)$ คุณผิดแล้วครับ อย่าลืมว่าเราไม่นำค่าคงที่มาคิด ดังนั้น คำตอบต้องเป็นแค่ $\mathcal{O}(1)$ เท่านั้น
+
+```cpp
+for (int i = 1; i <= n; i++) {
+    for (int j = i; j <= n; j++) {
+        // O(1)
+    }
+}
+```
+??? note "เฉลย"
+    จะมีการทำงานทั้งหมด $n + (n-1) + (n-2) + \dots + 1 = \frac{n(n+1)}{2}$ ครั้ง ซึ่งเทียบได้กับ $\mathcal{O}(n^2)$
 
 ## Complexity ที่พบบ่อย
 
