@@ -1,0 +1,73 @@
+name: deploy-dev
+
+on:
+    push:
+        branches:
+            - dev
+    workflow_dispatch:
+
+permissions:
+    contents: write
+
+jobs:
+    build-and-deploy-dev:
+        runs-on: ubuntu-latest
+        env:
+            CACHE_WEEK: ${{ github.run_id }}
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0 # needed to push to gh-pages branch
+
+            - name: Configure Git Credentials
+              run: |
+                  git config user.name github-actions[bot]
+                  git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+
+            - name: Setup Python
+              uses: actions/setup-python@v5
+              with:
+                  python-version: "3.x"
+
+            - name: Cache MkDocs dependencies
+              uses: actions/cache@v4
+              with:
+                  key: mkdocs-material-${{ runner.os }}-week-${{ env.CACHE_WEEK }}
+                  path: .cache
+                  restore-keys: |
+                      mkdocs-material-
+
+            - name: Install dependencies
+              run: |
+                  pip install mkdocs-material
+
+            - name: Set PYTHONPATH for local extensions
+              run: echo "PYTHONPATH=$PWD" >> $GITHUB_ENV
+
+            - name: Build MkDocs (dev config)
+              run: mkdocs build --config-file mkdocs.dev.yml --site-dir site-dev
+
+            - name: Deploy dev site into gh-pages root/dev
+              run: |
+                  if git ls-remote --exit-code origin gh-pages; then
+                    target_branch=gh-pages
+                  else
+                    target_branch=gh-pages
+                  fi
+                  git fetch origin $target_branch:$target_branch
+                  git checkout $target_branch
+                  mkdir -p dev
+                  rm -rf dev/*
+                  cp -R site-dev/* dev/
+                  touch .nojekyll
+                  git add dev .nojekyll
+                  if git diff --cached --quiet; then
+                    echo "No changes in dev build; skipping commit." && exit 0
+                  fi
+                  git commit -m "Update dev preview from ${GITHUB_SHA}" || echo "Nothing to commit"
+                  git push origin $target_branch
+
+            - name: Summary
+              run: |
+                  echo "Dev preview deployed to: https://thai-cp.github.io/dev/" >> $GITHUB_STEP_SUMMARY
