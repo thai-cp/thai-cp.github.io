@@ -40,7 +40,7 @@ extsol: https://programming.in.th/tasks/toi11_labor/solution
                 if (t[i] < mn_element)
                     mn_element = t[i];
             }
-            long long l = 1, r = mn_element * n, ans = 0;
+            long long l = 1, r = mn_element * n;
             while (l < r) {
                 long long mid = (l + r) / 2;
                 if (check(mid)) {
@@ -81,7 +81,7 @@ extsol: https://programming.in.th/tasks/toi11_labor/solution
                 if(t[i] < mn_element)
                     mn_element = t[i];
             }
-            long long l = 1, r = mn_element * n, ans = 0;
+            long long l = 1, r = mn_element * n;
             while (l < r) {
                 long long mid = (l + r) / 2;
                 if (check(mid)) {
