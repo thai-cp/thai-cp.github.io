@@ -36,19 +36,21 @@ nav:
 theme:
   name: material
   custom_dir: overrides
+  logo: assets/logo.png
+  favicon: assets/logo.png
   palette:
-    - scheme: default
-      primary: green
-      accent: light green
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to Dark Mode
     - scheme: slate
       primary: green
       accent: light green
       toggle:
-        icon: material/toggle-switch
+        icon: material/weather-night
         name: Switch to Light Mode
+    - scheme: default
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to Dark Mode
   features:
     - navigation.tabs
     # - navigation.instant
