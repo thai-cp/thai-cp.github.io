@@ -60,14 +60,14 @@ title: พื้นฐาน (Basic)
 </div>
 
 
-### โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน  
+## โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน  
 - [Complexity Analysis](/dsa-basic/complexity)
 - [Binary Search](/dsa-basic/binary-search)
 - [Sorting Algorithms](/dsa-basic/sorting)
 - [Stack](/dsa-basic/stack)
 - [Queue](/dsa-basic/queue)
 
-### โจทย์เพิ่มเติม
+## โจทย์เพิ่มเติม
 
 - โจทย์ข้อ **00XX ทุกข้อ** ใน [PROGRAMMING.IN.TH](https://programming.in.th) โดยสามารถดูเฉลยได้ที่ `https://thai-cp.github.io/problems/[id]` เช่น `https://thai-cp.github.io/problems/0043`
 
