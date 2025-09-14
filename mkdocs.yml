@@ -7,7 +7,8 @@ nav:
     - อะไรคือ Competitive Programming?: general/intro-cp.md
     - สอวน. คอมพิวเตอร์: general/posn.md
     - แหล่งเรียนรู้: general/resources.md
-    - Road Map: general/roadmap.md
+  - Road Map:
+    - พื้นฐาน (Basic): roadmap/basic.md
   - การเขียนโปรแกรมเบื้องต้น:
     - บทนำ: prog-basic/index.md
     - วิธีการรันโปรแกรม: prog-basic/run-code.md

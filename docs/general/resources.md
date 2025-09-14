@@ -11,7 +11,7 @@ author: Pakin Olanraktham
 
 ## โจทย์
 
-- [programming.in.th](https://programming.in.th)
+- [PROGRAMMING.IN.TH](https://programming.in.th)
 - [OTOG](https://otog.in.th)
 - [Grader-chan](https://grader.gchan.moe/)
 - [CSES](https://cses.fi/problemset) (ภาษาอังกฤษ)
