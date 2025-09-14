@@ -8,7 +8,7 @@ level:
 
 ## Queue
 
-**Queue** ใน C++ จะถูก include อยู่ใน library `<queue>` ซึ่ง Queue มีการทำงานแบบ "First In First Out" (FIFO) นั่นคือ เราจะนำข้อมูลใหม่มาใส่ตรงท้ายแถว แล้วเวลาจะนำข้อมูลออก จะนำออกมาทางด้านหน้าแถว ซึ่งทั้งการเพิ่มข้อมูล การเอาข้อมูลออก และการเรียกข้อมูลตัวแรก จะใช้ [Time Complexity](/dsa-basic/complexity) เพียง $O(1)$
+**Queue** ใน C++ จะถูก include อยู่ใน library `<queue>` ซึ่ง Queue มีการทำงานแบบ "First In First Out" (FIFO) นั่นคือ เราจะนำข้อมูลใหม่มาใส่ตรงท้ายแถว แล้วเวลาจะนำข้อมูลออก จะนำออกมาทางด้านหน้าแถว ซึ่งทั้งการเพิ่มข้อมูล การเอาข้อมูลออก และการเรียกข้อมูลตัวแรก จะใช้ Time Complexity เพียง $O(1)$
 
 ## Operations
 - Initialization
@@ -53,6 +53,7 @@ level:
     ```cpp title="การ Implement ใน C++"
     // นำข้อมูลออกจาก Queue
     void pop(queue &q) {
+        if (stack == nullptr) return;
         node* temp = q.front;
         q.front = q.front->next;
         if (q.front == nullptr) q.back = nullptr;
@@ -66,6 +67,14 @@ level:
         return q.front->data;
     }
     ```
+- `empty()`: ใช้ในการตรวจสอบว่า Queue ว่างหรือไม่
+    ```cpp title="การ Implement ใน C++"
+    // ตรวจสอบว่า Queue ว่างหรือไม่
+    bool empty(queue &q) {
+        return q.front == nullptr;
+    }
+    ```
+
 - ตัวอย่างการใช้งาน
     ```cpp title="ตัวอย่างการใช้งาน Queue"
     #include <iostream>
@@ -102,6 +111,7 @@ level:
 
     // นำข้อมูลออกจาก Queue
     void pop(queue &q) {
+        if (q.front == nullptr) return;
         node* temp = q.front;
         q.front = q.front->next;
         if (q.front == nullptr) q.back = nullptr;
@@ -111,6 +121,11 @@ level:
     // เรียกค่าตัวหน้าสุดของ Queue
     int front(queue &q) {
         return q.front->data;
+    }
+
+    // ตรวจสอบว่า Queue ว่างหรือไม่
+    bool empty(queue &q) {
+        return q.front == nullptr;
     }
 
     int main() {

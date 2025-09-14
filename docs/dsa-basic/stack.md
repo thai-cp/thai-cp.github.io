@@ -37,6 +37,7 @@ level:
     ```cpp title="การ Implement ใน C++"
     // pop ตัวบนสุดทิ้ง
     void pop(node* &stack) {
+        if (stack == nullptr) return;
         node* temp = stack;
         stack = stack->next;
         delete temp;
@@ -53,6 +54,15 @@ level:
         return stack->data;
     }
     ```
+
+- `empty()`: ใช้ในการตรวจสอบว่า Stack ว่างหรือไม่
+    ```cpp title="การ Implement ใน C++"
+    // ตรวจสอบว่า Stack ว่างหรือไม่
+    bool empty(node* stack) {
+        return stack == nullptr;
+    }
+    ```
+
 - ตัวอย่างการใช้งาน
     ```cpp title="ตัวอย่างการใช้งาน Stack"
     #include <iostream>
@@ -75,6 +85,7 @@ level:
 
     // pop ตัวบนสุดทิ้ง
     void pop(node* &stack) {
+        if (stack == nullptr) return;
         node* temp = stack;
         stack = stack->next;
         delete temp;
@@ -87,6 +98,11 @@ level:
             return -1;
         }
         return stack->data;
+    }
+
+    // ตรวจสอบว่า Stack ว่างหรือไม่
+    bool empty(node* stack) {
+        return stack == nullptr;
     }
 
     int main() {
