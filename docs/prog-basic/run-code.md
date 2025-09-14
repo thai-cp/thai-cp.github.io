@@ -23,8 +23,6 @@ level:
 2. ดาวน์โหลดเวอร์ชันสำหรับ Windows
 3. เปิดไฟล์ '.exe' ที่ได้มา
 4. ทำตามขั้นตอนการติดตั้งจนเสร็จ
-5. เปิด VS Code
-6. ดาวน์โหลด Extension "C/C++ extension for VS Code"
 
 **การติดตั้ง Compiler**
 
@@ -43,7 +41,8 @@ pacman -S --needed base-devel mingw-w64-ucrt-x86_64-gcc
 6. ใน "User variables" ให้เลือก "Path" แล้วกด "Edit"
 7. เลือก "New" และเพิ่มที่อยู่ของ MinGW-w64 (หากตั้งค่าเป็น default ให้เลือก `C:\msys64\ucrt64\bin`)
 8. กด "OK" และ "OK" อีกรอบใน "Environment Variables"
-9. ตรวจสอบว่าลงสำเร็จหรือไม่ โดยพิมพ์คำสั่งต่อไปนี้ลงใน Command Prompt
+9. Restart คอมพิวเตอร์ และ VS Code
+10. ตรวจสอบว่าลงสำเร็จหรือไม่ โดยพิมพ์คำสั่งต่อไปนี้ลงใน Command Prompt
 
 ```bash
 gcc --version
@@ -60,8 +59,6 @@ gdb --version
 1. ไปที่ [Visual Studio Code](https://code.visualstudio.com/download)
 2. ดาวน์โหลดเวอร์ชันสำหรับ Linux (เลือก .deb)
 3. รัน `sudo apt install ./path/to/file.deb` โดยแก้ `path/to/file.deb` เป็นชื่อไฟล์ที่ดาวน์โหลดมา
-4. เปิด VS Code
-5. ดาวน์โหลด Extension "C/C++ extension for VS Code"
 
 **การติดตั้ง Compiler**
 
@@ -74,17 +71,34 @@ gdb --version
 1. ดาวน์โหลด VS Code for macOS
 2. แตกไฟล์ .zip
 3. ลาก Visual Studio Code.app ไปที่โฟลเดอร์ Applications
-4. เปิดใช้งาน VS Code
-5. ดาวน์โหลด Extension "C/C++ extension for VS Code"
 
 **การติดตั้ง Compiler**
 
 1. รัน `xcode-select --install`
 
-## การติดตั้ง Extension สำหรับ VS Code
+## การ Set Up และ ติดตั้ง Extension สำหรับ VS Code
 
-1. ดาวน์โหลด Extension "Code Runner"
-2. เปิด Setting ของ Extension
-3. เลื่อนหา Excutor Map และกดตรง "Edit in settings.json"
-4. แก้ตรง "c" ให้ เป็น `"c": "cd $dir && gcc -std=c11 -O2 -pipe -static -s $fileName -o $fileNameWithoutExt -lm && $dir$fileNameWithoutExt",`
-5. แก้ตรง "cpp" ให้เป็น `"cpp": "cd $dir && g++ -std=c++17 -O2 -pipe -static -s $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",`
+<div style="margin: 1em 0;">
+    <video controls muted loop style="width:100%; border:1px solid #ccc; border-radius:6px;">
+        <source src="../../assets/vscode.mp4" type="video/mp4" />
+    เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอนี้
+    </video>
+</div>
+
+1. เปิดโปรแกรม VS Code
+2. เปิด Setting แล้วเลือก "Auto Save" ให้เป็น "After Delay"
+3. ดาวน์โหลด Extension "C/C++ Extension Pack"
+4. ดาวน์โหลด Extension "Code Runner"
+2. เปิด Setting ของ Extension "Code Runner"
+3. เลื่อนหา "Run In Terminal" แล้วกดเครื่องหมายถูก
+4. จากนั้นเลื่อนหา "Excutor Map" และกดตรง "Edit in settings.json"
+5. แก้ตรง "c" ให้ เป็น `"c": "cd $dir && gcc -std=c11 -O2 -pipe -static -s $fileName -o $fileNameWithoutExt -lm && $dir$fileNameWithoutExt",`
+6. แก้ตรง "cpp" ให้เป็น `"cpp": "cd $dir && g++ -std=c++17 -O2 -pipe -static -s $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",`
+
+## การสร้างไฟล์
+
+1. ตรงแถบ Menu ด้านซ้าย ให้เลือก "Explorer" แล้วกด "Open Folder"
+2. เลือก Folder ที่ต้องการที่จะเก็บโค้ดต่างๆ
+3. ตรงแถบด้านซ้าย ให้กด New File แล้วสร้างไฟล์ที่มีนามสกุล ".cpp" เช่น "hello.cpp"
+4. กดไปที่ไฟล์นั้น จะมี Code Editor ขึ้นมาทางด้านขวา ซึ่งสามารถพิมพ์โค้ดได้เลย
+5. หากต้องการจะรันโค้ด จะมีปุ่มรัน อยู่ทางมุมขวาบนของหน้าจอ ที่เป็นรูปสามเหลี่ยม ให้กด Drop Down แล้วเลือก "Run Code"
