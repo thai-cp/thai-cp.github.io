@@ -6,13 +6,12 @@ title: พื้นฐาน (Basic)
 - [อะไรคือ Competitive Programming?](/general/intro-cp)
 - [สอวน. คอมพิวเตอร์](/general/posn)
 - [แหล่งเรียนรู้](/general/resources)
-- [Road Map](/general/roadmap)
 
 ## การเขียนโปรแกรมเบื้องต้น
-### [บทนำ](/prog-basic/)
-### [วิธีการรันโปรแกรม](/prog-basic/run-code)
+- [บทนำ](/prog-basic/)
+- [วิธีการรันโปรแกรม](/prog-basic/run-code)
 
-### การเขียนโปรแกรมภาษา C
+<!-- ### การเขียนโปรแกรมภาษา C
 
 (สามารถอ่านหรือไม่อ่านก็ได้ แต่ควรอ่าน หากศูนย์บังคับให้ใช้ C)
 
@@ -22,9 +21,9 @@ title: พื้นฐาน (Basic)
 - [คำสั่ง if - else](/prog-basic/c/if-else)
 - [คำสั่งวนซ้ำ (For Loop)](/prog-basic/c/for-loop)
 - [ตัวแปรชุด และสายอักขระ](/prog-basic/c/array)
-- [ฟังก์ชัน](/prog-basic/c/function)
+- [ฟังก์ชัน](/prog-basic/c/function) -->
 
-### การเขียนโปรแกรมภาษา C++
+<!-- ### การเขียนโปรแกรมภาษา C++
 - [Hello, World!](/prog-basic/cpp/hello-world)
 - [ตัวแปร ชนิดข้อมูล และตัวดำเนินการ](/prog-basic/cpp/variable)
 - [การส่งออกและนำเข้าข้อมูล](/prog-basic/cpp/input-output)
@@ -32,7 +31,34 @@ title: พื้นฐาน (Basic)
 - [คำสั่งวนซ้ำ (For Loop)](/prog-basic/cpp/for-loop)
 - [ตัวแปรชุด และสายอักขระ](/prog-basic/cpp/array)
 - [ฟังก์ชัน](/prog-basic/cpp/function)
-- [STL](/prog-basic/cpp/stl)
+- [STL](/prog-basic/cpp/stl) -->
+
+<div class="grid cards" markdown>
+
+-   ### การเขียนโปรแกรมภาษา C
+
+    - [Hello, World!](/prog-basic/c/hello-world)
+    - [ตัวแปร ชนิดข้อมูล และตัวดำเนินการ](/prog-basic/c/variable)
+    - [การส่งออกและนำเข้าข้อมูล](/prog-basic/c/input-output)
+    - [คำสั่ง if - else](/prog-basic/c/if-else)
+    - [คำสั่งวนซ้ำ (Loops)](/prog-basic/c/loops)
+    - [ตัวแปรชุด และสายอักขระ](/prog-basic/c/array)
+    - [ฟังก์ชัน](/prog-basic/c/function)
+
+    (สามารถอ่านหรือไม่อ่านก็ได้ แต่ควรอ่าน หากศูนย์บังคับให้ใช้ C)
+
+-   ### การเขียนโปรแกรมภาษา C++
+    - [Hello, World!](/prog-basic/cpp/hello-world)
+    - [ตัวแปร ชนิดข้อมูล และตัวดำเนินการ](/prog-basic/cpp/variable)
+    - [การส่งออกและนำเข้าข้อมูล](/prog-basic/cpp/input-output)
+    - [คำสั่ง if - else](/prog-basic/cpp/if-else)
+    - [คำสั่งวนซ้ำ (Loops)](/prog-basic/cpp/loops)
+    - [ตัวแปรชุด และสายอักขระ](/prog-basic/cpp/array)
+    - [ฟังก์ชัน](/prog-basic/cpp/function)
+    - [STL](/prog-basic/cpp/stl)
+
+</div>
+
 
 ### โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน  
 - [Complexity Analysis](/dsa-basic/complexity)

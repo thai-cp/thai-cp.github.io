@@ -17,7 +17,7 @@ nav:
       - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/c/variable.md
       - การส่งออกและนำเข้าข้อมูล: prog-basic/c/input-output.md
       - คำสั่ง if - else: prog-basic/c/if-else.md
-      - คำสั่งวนซ้ำ (For Loop): prog-basic/c/for-loop.md
+      - คำสั่งวนซ้ำ (Loop): prog-basic/c/loops.md
       - ตัวแปรชุด และสายอักขระ: prog-basic/c/array.md
       - ฟังก์ชัน: prog-basic/c/function.md
     - การเขียนโปรแกรมภาษา C++:
@@ -25,10 +25,10 @@ nav:
       - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/cpp/variable.md
       - การส่งออกและนำเข้าข้อมูล: prog-basic/cpp/input-output.md
       - คำสั่ง if - else: prog-basic/cpp/if-else.md
-      - คำสั่งวนซ้ำ (For Loop): prog-basic/cpp/for-loop.md
+      - คำสั่งวนซ้ำ (Loop): prog-basic/cpp/loops.md
       - ตัวแปรชุด และสายอักขระ: prog-basic/cpp/array.md
       - ฟังก์ชัน: prog-basic/cpp/function.md
-      # - STL : prog-basic/cpp/stl.md
+      - STL : prog-basic/cpp/stl.md
   - โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน:
       - Complexity Analysis: dsa-basic/complexity.md
       - Binary Search: dsa-basic/binary-search.md
