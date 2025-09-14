@@ -8,10 +8,12 @@ level:
 
 ## Stack
 
-**Stack** ใน C++ จะถูก include อยู่ใน library `<stack>` ซึ่ง Stack มีการทำงานแบบ "Last In First Out" (LIFO) นั่นคือ ช่องที่เรานำข้อมูลมาใส่ จะเป็นช่องเดียวกันกับทางที่เราดึงข้อมูลออกมา ซึ่งทั้งการเพิ่มข้อมูล การเอาข้อมูลออก และการเรียกข้อมูลตัวแรก จะใช้ [Time Complexity](/dsa-basic/complexity) เพียง $O(1)$
+**Stack** ใน C++ จะถูก include อยู่ใน library `<stack>` ซึ่ง Stack มีการทำงานแบบ "Last In First Out" (LIFO) นั่นคือ ช่องที่เรานำข้อมูลมาใส่ จะเป็นช่องเดียวกันกับทางที่เราดึงข้อมูลออกมา ซึ่งทั้งการเพิ่มข้อมูล การเอาข้อมูลออก และการเรียกข้อมูลตัวแรก จะใช้ Time Complexity เพียง $O(1)$
 
 ## Operations
+
 - Initialization
+
     ```cpp title="การ Implement ใน C++"
     // ประกาศ
     struct node {
@@ -23,7 +25,9 @@ level:
         node* stack = nullptr;
     }
     ```
+
 - `push()`: ใช้ในการเพิ่มข้อมูลเข้า Stack
+
     ```cpp title="การ Implement ใน C++"
     // นำค่าใหม่ใส่ใน Stack
     void push(node* &stack, int val) {
@@ -33,7 +37,9 @@ level:
         stack = newNode;
     }
     ```
+
 - `pop()`: ใช้ในการนำข้อมูลออกจาก Stack
+
     ```cpp title="การ Implement ใน C++"
     // pop ตัวบนสุดทิ้ง
     void pop(node* &stack) {
@@ -43,7 +49,9 @@ level:
         delete temp;
     }
     ```
+
 - `top()`: ใช้ในการเรียกค่าตัวบนของ Stack
+
     ```cpp title="การ Implement ใน C++"
     // เรียกค่าบนสุดใน Stack
     int top(node* stack) {
@@ -56,6 +64,7 @@ level:
     ```
 
 - `empty()`: ใช้ในการตรวจสอบว่า Stack ว่างหรือไม่
+
     ```cpp title="การ Implement ใน C++"
     // ตรวจสอบว่า Stack ว่างหรือไม่
     bool empty(node* stack) {
@@ -64,6 +73,7 @@ level:
     ```
 
 - ตัวอย่างการใช้งาน
+
     ```cpp title="ตัวอย่างการใช้งาน Stack"
     #include <iostream>
 
@@ -117,6 +127,7 @@ level:
         cout << "Stack top after pop: " << top(stack) << endl;
     }
     ```
+
 ## โจทย์
 
 !problems [prog-0003, prog-0004, prog-0010, prog-0016, prog-0020, prog-0021, prog-0025, prog-0030, prog-0033, prog-0035, prog-0043]
