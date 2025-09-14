@@ -1,7 +1,7 @@
 ---
 title: เชียงใหม่ไน่ทรัพย์ (Shopping)
 source: TOI
-fsource: การแข่งขันคอมพิวเตอร์โอลิมปิกระดับชาติ
+fsource: การแข่งขันคอมพิวเตอร์โอลิมปิกระดับชาติ ครั้งที่ 18
 link: https://programming.in.th/tasks/toi18_shopping
 difficulty: Normal
 tags: [Binary search]
