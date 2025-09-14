@@ -14,7 +14,7 @@ level:
 
 - Initialization
 
-    ```cpp title="การ Implement ใน C++"
+    ```cpp
     // ประกาศ
     struct node {
         int data;
@@ -28,7 +28,7 @@ level:
 
 - `push()`: ใช้ในการเพิ่มข้อมูลเข้า Stack
 
-    ```cpp title="การ Implement ใน C++"
+    ```cpp
     // นำค่าใหม่ใส่ใน Stack
     void push(node* &stack, int val) {
         node* newNode = new node();
@@ -40,7 +40,7 @@ level:
 
 - `pop()`: ใช้ในการนำข้อมูลออกจาก Stack
 
-    ```cpp title="การ Implement ใน C++"
+    ```cpp
     // pop ตัวบนสุดทิ้ง
     void pop(node* &stack) {
         if (stack == nullptr) return;
@@ -52,7 +52,7 @@ level:
 
 - `top()`: ใช้ในการเรียกค่าตัวบนของ Stack
 
-    ```cpp title="การ Implement ใน C++"
+    ```cpp
     // เรียกค่าบนสุดใน Stack
     int top(node* stack) {
         if (stack == nullptr) {
@@ -65,7 +65,7 @@ level:
 
 - `empty()`: ใช้ในการตรวจสอบว่า Stack ว่างหรือไม่
 
-    ```cpp title="การ Implement ใน C++"
+    ```cpp
     // ตรวจสอบว่า Stack ว่างหรือไม่
     bool empty(node* stack) {
         return stack == nullptr;
@@ -74,7 +74,7 @@ level:
 
 - ตัวอย่างการใช้งาน
 
-    ```cpp title="ตัวอย่างการใช้งาน Stack"
+    ```cpp
     #include <iostream>
 
     using namespace std;

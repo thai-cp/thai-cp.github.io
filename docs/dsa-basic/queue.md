@@ -14,7 +14,7 @@ level:
 
 - Initialization
 
-    ```cpp title="การ Implement ใน C++"
+    ```cpp
     // ประกาศ
     struct node {
         int data;
@@ -38,7 +38,7 @@ level:
 
 - `push()`: ใช้ในการเพิ่มข้อมูลเข้า Queue (ใส่ท้ายแถว)
 
-    ```cpp title="การ Implement ใน C++"
+    ```cpp
     // เพิ่มข้อมูลเข้า Queue
     void push(queue &q, int val) {
         node* newNode = new node();
@@ -56,7 +56,7 @@ level:
 
 - `pop()`: ใช้ในการนำข้อมูลออกจาก Queue (ดึงหน้าสุด)
 
-    ```cpp title="การ Implement ใน C++"
+    ```cpp
     // นำข้อมูลออกจาก Queue
     void pop(queue &q) {
         if (stack == nullptr) return;
@@ -69,7 +69,7 @@ level:
 
 - `front()`: ใช้ในการเรียกค่าตัวหน้าสุดของ Queue
 
-    ```cpp title="การ Implement ใน C++"
+    ```cpp
     // เรียกค่าตัวหน้าสุดของ Queue
     int front(queue &q) {
         return q.front->data;
@@ -78,7 +78,7 @@ level:
 
 - `empty()`: ใช้ในการตรวจสอบว่า Queue ว่างหรือไม่
 
-    ```cpp title="การ Implement ใน C++"
+    ```cpp
     // ตรวจสอบว่า Queue ว่างหรือไม่
     bool empty(queue &q) {
         return q.front == nullptr;
@@ -87,7 +87,7 @@ level:
 
 - ตัวอย่างการใช้งาน
 
-    ```cpp title="ตัวอย่างการใช้งาน Queue"
+    ```cpp
     #include <iostream>
     using namespace std;
 
