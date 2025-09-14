@@ -1,6 +1,6 @@
 ---
 title: ฟังก์ชัน
-author: Pakin Olanraktham, njoop
+author: Pakin Olanraktham & njoop
 level:
 ---
 
