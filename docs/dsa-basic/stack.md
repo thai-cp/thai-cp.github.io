@@ -10,42 +10,96 @@ level:
 
 **Stack** ใน C++ จะถูก include อยู่ใน library `<stack>` ซึ่ง Stack มีการทำงานแบบ "Last In First Out" (LIFO) นั่นคือ ช่องที่เรานำข้อมูลมาใส่ จะเป็นช่องเดียวกันกับทางที่เราดึงข้อมูลออกมา ซึ่งทั้งการเพิ่มข้อมูล การเอาข้อมูลออก และการเรียกข้อมูลตัวแรก จะใช้ [Time Complexity](/dsa-basic/complexity) เพียง $O(1)$
 
-## Initialize
-ลักษณะ Syntax จะเป็น
-```cpp
-stack <ชนิดข้อมูล> ชื่อที่ต้องการจะตั้ง;
-```
-เช่น
-```cpp
-stack <int> st_int; // จะได้ Stack สำหรับเก็บค่าชนิด Integer (จำนวนเต็ม)
-stack <string> st_string; // จะได้ Stack สำหรับเก็บค่าชนิด String (สายอักขระ)
-```
-
 ## Operations
+- Initialization
+    ```cpp title="การ Implement ใน C++"
+    // ประกาศ
+    struct node {
+        int data;
+        node* next;
+    };
+    
+    int main() {
+        node* stack = nullptr;
+    }
+    ```
 - `push()`: ใช้ในการเพิ่มข้อมูลเข้า Stack
-    ```cpp title="ตัวอย่างการใช้"
-    st_int.push(5);
+    ```cpp title="การ Implement ใน C++"
+    // นำค่าใหม่ใส่ใน Stack
+    void push(node* &stack, int val) {
+        node* newNode = new node();
+        newNode->data = val;
+        newNode->next = stack;
+        stack = newNode;
+    }
     ```
 - `pop()`: ใช้ในการนำข้อมูลออกจาก Stack
-    ```cpp title="ตัวอย่างการใช้"
-    st_int.pop();
+    ```cpp title="การ Implement ใน C++"
+    // pop ตัวบนสุดทิ้ง
+    void pop(node* &stack) {
+        node* temp = stack;
+        stack = stack->next;
+        delete temp;
+    }
     ```
 - `top()`: ใช้ในการเรียกค่าตัวบนของ Stack
-    ```cpp title="ตัวอย่างการใช้"
-    int t = st_int.top();
-    ```
-- `empty()`: ใช้ในการตรวจสอบว่า Stack ว่างหรือไม่
-    ```cpp title="ตัวอย่างการใช้"
-    if (st_int.empty()) {
-        cout << "Stack is empty";
-    }
-    else {
-        cout << "Stack is not empty";
+    ```cpp title="การ Implement ใน C++"
+    // เรียกค่าบนสุดใน Stack
+    int top(node* stack) {
+        if (stack == nullptr) {
+            cout << "Stack is empty!" << endl;
+            return -1;
+        }
+        return stack->data;
     }
     ```
-- `size()`: ใช้ในการเรียกขนาดของ Stack ณ ขณะนั้น
-    ```cpp title="ตัวอย่างการใช้"
-    int sz = st_int.size();
+- ตัวอย่างการใช้งาน
+    ```cpp title="ตัวอย่างการใช้งาน Stack"
+    #include <iostream>
+
+    using namespace std;
+
+    // ประกาศ
+    struct node {
+        int data;
+        node* next;
+    };
+
+    // นำค่าใหม่ใส่ใน Stack
+    void push(node* &stack, int val) {
+        node* newNode = new node();
+        newNode->data = val;
+        newNode->next = stack;
+        stack = newNode;
+    }
+
+    // pop ตัวบนสุดทิ้ง
+    void pop(node* &stack) {
+        node* temp = stack;
+        stack = stack->next;
+        delete temp;
+    }
+
+    // เรียกค่าตัวบนสุดใน Stack
+    int top(node* stack) {
+        if (stack == nullptr) {
+            cout << "Stack is empty!" << endl;
+            return -1;
+        }
+        return stack->data;
+    }
+
+    int main() {
+        node* stack = nullptr;
+
+        push(stack, 10);
+        push(stack, 20);
+        push(stack, 30);
+
+        cout << "Stack top: " << top(stack) << endl;
+        cout << "Popped: " << pop(stack) << endl;
+        cout << "Stack top after pop: " << top(stack) << endl;
+    }
     ```
 ## โจทย์
 
