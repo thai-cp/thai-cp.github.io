@@ -403,46 +403,47 @@ void qsort(
 * `= 0` ถ้าเท่ากัน (ลำดับไม่สำคัญ)
 * `> 0` ถ้า a ควรมาหลัง b
 
-ตัวอย่าง: เรียงอาเรย์จำนวนเต็มจากน้อยไปมาก แล้วจากมากไปน้อย
+!!! info "โจทย์"
+    จงเรียงอาเรย์จำนวนเต็มจากน้อยไปมาก แล้วจากมากไปน้อย
+    ??? info "เฉลย"
+        ```c
+        #include <stdio.h>
+        #include <stdlib.h>
 
-```c
-#include <stdio.h>
-#include <stdlib.h>
+        int cmp_asc(const void *p1, const void *p2) {
+            int a = *(const int*)p1;
+            int b = *(const int*)p2;
+            return a - b; // น้อยไปมาก
+        }
 
-int cmp_asc(const void *p1, const void *p2) {
-    int a = *(const int*)p1;
-    int b = *(const int*)p2;
-    return a - b; // น้อยไปมาก
-}
+        int cmp_desc(const void *p1, const void *p2) {
+            int a = *(const int*)p1;
+            int b = *(const int*)p2;
+            return b - a; // มากไปน้อย (สลับลำดับ)
+        }
 
-int cmp_desc(const void *p1, const void *p2) {
-    int a = *(const int*)p1;
-    int b = *(const int*)p2;
-    return b - a; // มากไปน้อย (สลับลำดับ)
-}
+        int main() {
+            int asc[] = {5, 2, 9, 1, 5, 6};
+            int desc[] = {5, 2, 9, 1, 5, 6};
+            int n = sizeof(asc)/sizeof(asc[0]);
 
-int main() {
-    int asc[] = {5, 2, 9, 1, 5, 6};
-    int desc[] = {5, 2, 9, 1, 5, 6};
-    int n = sizeof(asc)/sizeof(asc[0]);
+            qsort(asc, n, sizeof(int), cmp_asc);
+            qsort(desc, n, sizeof(int), cmp_desc);
 
-    qsort(asc, n, sizeof(int), cmp_asc);
-    qsort(desc, n, sizeof(int), cmp_desc);
+            printf("Ascending : ");
+            for(int i=0;i<n;i++) printf("%d ", asc[i]);
+            printf("\n");
 
-    printf("Ascending : ");
-    for(int i=0;i<n;i++) printf("%d ", asc[i]);
-    printf("\n");
-
-    printf("Descending: ");
-    for(int i=0;i<n;i++) printf("%d ", desc[i]);
-    printf("\n");
-}
-/*
-ผลลัพธ์
-Ascending : 1 2 5 5 6 9 
-Descending: 9 6 5 5 2 1
-*/
-```
+            printf("Descending: ");
+            for(int i=0;i<n;i++) printf("%d ", desc[i]);
+            printf("\n");
+        }
+        /*
+        ผลลัพธ์
+        Ascending : 1 2 5 5 6 9 
+        Descending: 9 6 5 5 2 1
+        */
+        ```
 
 ### `stbool.h` (Boolean Function)
 
