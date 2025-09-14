@@ -10,7 +10,7 @@ level: Normal
 
 Sorting Algorithms หรืออัลกอริทึมการเรียงลำดับข้อมูล
 เป็นอัลกอริทึมที่ใช้เรียงลำดับข้อมูลจากมากไปน้อยหรือน้อยไปมากโดยอัลกอริทึมการเรียงลำ
-ดับข้อมูลที่ดีคสรทำงานในเวลา [$\mathcal{O}(n\log n)$](https://thai-cp.github.io/dsa-basic/complexity/)
+ดับข้อมูลที่ดีคสรทำงานในเวลา [$\mathcal{O}(n\log n)$](complexity.md)
 
 ## Bubble Sort
 
