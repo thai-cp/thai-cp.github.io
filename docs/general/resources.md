@@ -13,6 +13,7 @@ author: Pakin Olanraktham
 
 - [programming.in.th](https://programming.in.th)
 - [OTOG](https://otog.in.th)
+- [Grader-chan](https://grader.gchan.moe/)
 - [CSES](https://cses.fi/problemset) (ภาษาอังกฤษ)
 - [USACO](https://usaco.org) (ภาษาอังกฤษ)
 - [codeforces](https://codeforces.com) (ภาษาอังกฤษ)
