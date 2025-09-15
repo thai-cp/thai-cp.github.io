@@ -27,10 +27,10 @@ nav:
       - คำสั่ง if - else: prog-basic/cpp/if-else.md
       - คำสั่งวนซ้ำ (Loop): prog-basic/cpp/loops.md
       - ตัวแปรชุด และสายอักขระ: prog-basic/cpp/array.md
-      - ฟังก์ชัน: prog-basic/cpp/function.md
-      - STL : prog-basic/cpp/stl.md
+      - ฟังก์ชัน: prog-basic/cpp/function.md_in_html
   - โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน:
       - Complexity Analysis: dsa-basic/complexity.md
+      - Intro to Data Structures: dsa-basic/intro-ds.md
       - Binary Search: dsa-basic/binary-search.md
       - Sorting Algorithms: dsa-basic/sorting.md
       - Stack: dsa-basic/stack.md
@@ -42,6 +42,8 @@ theme:
   custom_dir: overrides
   logo: assets/logo.png
   favicon: assets/logo.png
+  font:
+    text: "Noto Sans Thai"
   palette:
     - scheme: default
       primary: green
