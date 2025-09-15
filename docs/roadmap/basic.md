@@ -68,6 +68,7 @@ title: พื้นฐาน (Basic)
 ## โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน  
 
 - [Complexity Analysis](../dsa-basic/complexity.md)
+- [Intro to Data Structures](../dsa-basic/intro-ds.md)
 - [Binary Search](../dsa-basic/binary-search.md)
 - [Sorting Algorithms](../dsa-basic/sorting.md)
 - [Stack](../dsa-basic/stack.md)

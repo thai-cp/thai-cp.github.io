@@ -3,12 +3,12 @@ site_url: https://thai-cp.github.io/
 
 nav:
   - Home: index.md
+  - Road Map:
+    - พื้นฐาน (Basic): roadmap/basic.md
   - ทั่วไป:
     - อะไรคือ Competitive Programming?: general/intro-cp.md
     - สอวน. คอมพิวเตอร์: general/posn.md
     - แหล่งเรียนรู้: general/resources.md
-  - Road Map:
-    - พื้นฐาน (Basic): roadmap/basic.md
   - การเขียนโปรแกรมเบื้องต้น:
     - บทนำ: prog-basic/index.md
     - วิธีการรันโปรแกรม: prog-basic/run-code.md

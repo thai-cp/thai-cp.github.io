@@ -106,3 +106,10 @@ gdb --version
 !!! note "เพิ่มเติม"
     - ในกรณีที่ไม่มี Code Runner (เครื่องของศูนย์อาจจะไม่ได้ติดตั้งมา) ให้กด "Run C/C++ File" แทน จากนั้น ด่านล่างให้เลือก Terminal
     - หากต้องการ Debug File (หา Error ของโค้ด) ให้กด "Debug C/C++ File" จากนั้น ด่านล่างให้เลือก Terminal
+
+## การรันโค้ด Online
+
+เว็บไซต์ที่แนะนำ เช่น
+
+- [USACO ide](https://ide.usaco.guide/)
+- [GDB online Debugger](http://onlinegdb.com/)
