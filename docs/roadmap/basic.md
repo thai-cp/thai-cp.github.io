@@ -39,30 +39,29 @@ title: พื้นฐาน (Basic)
 
 - ### การเขียนโปรแกรมภาษา C
 
-  - [Hello, World!](../prog-basic/c/hello-world.md)
-  - [ตัวแปร ชนิดข้อมูล และตัวดำเนินการ](../prog-basic/c/variable.md)
-  - [การส่งออกและนำเข้าข้อมูล](../prog-basic/c/input-output.md)
-  - [คำสั่ง if - else](../prog-basic/c/if-else.md)
-  - [คำสั่งวนซ้ำ (Loops)](../prog-basic/c/loops.md)
-  - [ตัวแปรชุด และสายอักขระ](../prog-basic/c/array.md)
-  - [ฟังก์ชัน](../prog-basic/c/function.md)
-  - [ตัวแปรโครงสร้าง (Struct)](../prog-basic/cpp/struct.md)
-  - [ตัวชี้ (Pointer)](../prog-basic/c/pointer.md)
+    - [Hello, World!](../prog-basic/c/hello-world.md)
+    - [ตัวแปร ชนิดข้อมูล และตัวดำเนินการ](../prog-basic/c/variable.md)
+    - [การส่งออกและนำเข้าข้อมูล](../prog-basic/c/input-output.md)
+    - [คำสั่ง if - else](../prog-basic/c/if-else.md)
+    - [คำสั่งวนซ้ำ (Loops)](../prog-basic/c/loops.md)
+    - [ตัวแปรชุด และสายอักขระ](../prog-basic/c/array.md)
+    - [ฟังก์ชัน](../prog-basic/c/function.md)
+    - [ตัวแปรโครงสร้าง (Struct)](../prog-basic/cpp/struct.md)
+    - [ตัวชี้ (Pointer)](../prog-basic/c/pointer.md)
 
     (สามารถอ่านหรือไม่อ่านก็ได้ แต่ควรอ่าน หากศูนย์บังคับให้ใช้ C)
 
 - ### การเขียนโปรแกรมภาษา C++
 
-  - [Hello, World!](../prog-basic/cpp/hello-world.md)
-  - [ตัวแปร ชนิดข้อมูล และตัวดำเนินการ](../prog-basic/cpp/variable.md)
-  - [การส่งออกและนำเข้าข้อมูล](../prog-basic/cpp/input-output.md)
-  - [คำสั่ง if - else](../prog-basic/cpp/if-else.md)
-  - [คำสั่งวนซ้ำ (Loops)](../prog-basic/cpp/loops.md)
-  - [ตัวแปรชุด และสายอักขระ](../prog-basic/cpp/array.md)
-  - [ฟังก์ชัน](../prog-basic/cpp/function.md)
-  - [ตัวแปรโครงสร้าง (Struct)](../prog-basic/cpp/struct.md)
-  - [ตัวชี้ (Pointer)](../prog-basic/cpp/pointer.md)
-  - [STL](../prog-basic/cpp/stl.md)
+    - [Hello, World!](../prog-basic/cpp/hello-world.md)
+    - [ตัวแปร ชนิดข้อมูล และตัวดำเนินการ](../prog-basic/cpp/variable.md)
+    - [การส่งออกและนำเข้าข้อมูล](../prog-basic/cpp/input-output.md)
+    - [คำสั่ง if - else](../prog-basic/cpp/if-else.md)
+    - [คำสั่งวนซ้ำ (Loops)](../prog-basic/cpp/loops.md)
+    - [ตัวแปรชุด และสายอักขระ](../prog-basic/cpp/array.md)
+    - [ฟังก์ชัน](../prog-basic/cpp/function.md)
+    - [ตัวแปรโครงสร้าง (Struct)](../prog-basic/cpp/struct.md)
+    - [ตัวชี้ (Pointer)](../prog-basic/cpp/pointer.md)
 
 </div>
 

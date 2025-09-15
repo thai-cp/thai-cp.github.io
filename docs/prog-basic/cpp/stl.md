@@ -1,6 +1,0 @@
----
-title: STL
-author:
----
-
-!unfinished
