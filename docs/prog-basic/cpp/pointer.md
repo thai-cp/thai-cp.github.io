@@ -15,9 +15,9 @@ Pointer หรือ ตัวชี้ ทำหน้าที่ชี้ ต
 ตัวอย่าง
 
 ```cpp
-int integer; //นี่คือการประกาศตัวแปร int ทั่วไป
+int integer; // นี่คือการประกาศตัวแปร int ทั่วไป
 
-int *pointer; //นี่คือการประกาศตัวแปร pointer
+int *pointer; // นี่คือการประกาศตัวแปร pointer
 ```
 
 ## การใช้งาน Pointer
@@ -31,11 +31,11 @@ int *pointer; //นี่คือการประกาศตัวแปร 
 ```cpp
 int integer, *pointer1;
 
-pointer1 = &integer; //คือการตั้งค่าให้ pointer1 เก็บค่าที่อยู่ของ integer
+pointer1 = &integer; // คือการตั้งค่าให้ pointer1 เก็บค่าที่อยู่ของ integer
 
 int *pointer2;
 
-pointer2=pointer; //ตั้งค่าให้ pointer2 ชี้ไปที่ตัวแปรเดียวกันกับ pointer1
+pointer2=pointer; // ตั้งค่าให้ pointer2 ชี้ไปที่ตัวแปรเดียวกันกับ pointer1
 ```
 
 ในส่วนของการแสดงค่าของตัวแปรที่ถูกชี้ เราจะทำได้โดยการใช้เครื่องหมาย `*` นำหน้าชื่อ pointer
@@ -50,7 +50,7 @@ pointer2=&b;
 int c=*pointer1+*pointer2;
 cout << c;
 
-//จะเห็นว่าโปรแกรมจะแสดงค่า 8 ซึ่งคือค่าของ a+b
+// จะเห็นว่าโปรแกรมจะแสดงค่า 8 ซึ่งคือค่าของ a+b
 ```
 
 ## Pointer and Array
@@ -68,7 +68,7 @@ pointer=&a[0];
 pointer+=3;
 
 cout << *pointer;
-//จะเห็นว่าโปรแกรมจะแสดงค่า 4 ซึ่งคือค่าของ a[3]
+// จะเห็นว่าโปรแกรมจะแสดงค่า 4 ซึ่งคือค่าของ a[3]
 ```
 
 !!! tip "คำแนะนำ"
