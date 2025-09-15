@@ -100,6 +100,10 @@ extra:
   analytics:
     provider: google
     property: G-X3SVQVTEE3
+  social:
+    - icon: octicons/report-16
+      link: https://forms.gle/7Bif1hn5Emd6Ah8h8
+      name: "แจ้งปัญหาหรือข้อเสนอแนะ"
 
 repo_url: https://github.com/thai-cp/thai-cp.github.io/
 repo_name: thai-cp/thai-cp.github.io
