@@ -44,4 +44,3 @@ student A = {"Penguin", 1234, 2000};
 ```cpp
 cout << A.name << ' ' << A.id << ' ' << A.age << '\n'; // จะส่งออก Penguin 1234 2000
 ```
-

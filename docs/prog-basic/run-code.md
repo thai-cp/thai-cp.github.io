@@ -89,11 +89,11 @@ gdb --version
 2. เปิด Setting แล้วเลือก "Auto Save" ให้เป็น "After Delay"
 3. ดาวน์โหลด Extension "C/C++ Extension Pack"
 4. ดาวน์โหลด Extension "Code Runner"
-2. เปิด Setting ของ Extension "Code Runner"
-3. เลื่อนหา "Run In Terminal" แล้วกดเครื่องหมายถูก
-4. จากนั้นเลื่อนหา "Excutor Map" และกดตรง "Edit in settings.json"
-5. แก้ตรง "c" ให้ เป็น `"c": "cd $dir && gcc -std=c11 -O2 -pipe -static -s $fileName -o $fileNameWithoutExt -lm && $dir$fileNameWithoutExt",`
-6. แก้ตรง "cpp" ให้เป็น `"cpp": "cd $dir && g++ -std=c++17 -O2 -pipe -static -s $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",`
+5. เปิด Setting ของ Extension "Code Runner"
+6. เลื่อนหา "Run In Terminal" แล้วกดเครื่องหมายถูก
+7. จากนั้นเลื่อนหา "Excutor Map" และกดตรง "Edit in settings.json"
+8. แก้ตรง "c" ให้ เป็น `"c": "cd $dir && gcc -std=c11 -O2 -pipe -static -s $fileName -o $fileNameWithoutExt -lm && $dir$fileNameWithoutExt",`
+9. แก้ตรง "cpp" ให้เป็น `"cpp": "cd $dir && g++ -std=c++17 -O2 -pipe -static -s $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",`
 
 ## การสร้างไฟล์
 

@@ -12,6 +12,7 @@ author: Pakin Olanraktham
 ```cpp
 #include <bits/stdc++.h>
 ```
+
 ไว้บรรทัดแรกของโปรแกรม
 
 แล้วโค้ดบรรทัดนั้น ทำหน้าที่อะไร? โค้ดนั้น เปรียบเสมือนการ `#include` ทุก Library ที่จำเป็นมาให้ แปลว่า เราไม่ต้อง `#include <iostream>` อีกต่อไปแล้ว ให้ใช้ `#include <bits/stdc++.h>` เพียงอันเดียวเลย

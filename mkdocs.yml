@@ -21,6 +21,7 @@ nav:
       - ตัวแปรชุด และสายอักขระ: prog-basic/c/array.md
       - ฟังก์ชัน: prog-basic/c/function.md
       - ตัวแปรโครงสร้าง (Struct): prog-basic/c/struct.md
+      - ตัวชี้ (Pointer): prog-basic/c/pointer.md
     - การเขียนโปรแกรมภาษา C++:
       - Hello, World!: prog-basic/cpp/hello-world.md
       - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/cpp/variable.md
@@ -30,6 +31,7 @@ nav:
       - ตัวแปรชุด และสายอักขระ: prog-basic/cpp/array.md
       - ฟังก์ชัน: prog-basic/cpp/function.md
       - ตัวแปรโครงสร้าง (Struct): prog-basic/cpp/struct.md
+      - ตัวชี้ (Pointer): prog-basic/cpp/pointer.md
   - โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน:
       - Complexity Analysis: dsa-basic/complexity.md
       - Intro to Data Structures: dsa-basic/intro-ds.md
