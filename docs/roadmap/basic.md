@@ -71,6 +71,7 @@ title: พื้นฐาน (Basic)
 - [Intro to Data Structures](../dsa-basic/intro-ds.md)
 - [Binary Search](../dsa-basic/binary-search.md)
 - [Sorting Algorithms](../dsa-basic/sorting.md)
+- [Linked List](../dsa-basic/linked-list.md)
 - [Stack](../dsa-basic/stack.md)
 - [Queue](../dsa-basic/queue.md)
 
