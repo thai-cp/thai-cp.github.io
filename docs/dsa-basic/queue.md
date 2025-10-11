@@ -10,7 +10,7 @@ level:
 
 **Queue** ใน C++ จะถูก include อยู่ใน library `<queue>` ซึ่ง Queue มีการทำงานแบบ "First In First Out" (FIFO) นั่นคือ เราจะนำข้อมูลใหม่มาใส่ตรงท้ายแถว แล้วเวลาจะนำข้อมูลออก จะนำออกมาทางด้านหน้าแถว ซึ่งทั้งการเพิ่มข้อมูล การเอาข้อมูลออก และการเรียกข้อมูลตัวแรก จะใช้ Time Complexity เพียง $O(1)$
 
-## Operations
+### Operations
 
 - Initialization
 
@@ -150,6 +150,93 @@ level:
         cout << "Front: " << front(q) << endl;
         pop(q);
         cout << "Front after pop: " << front(q) << endl;
+    }
+    ```
+
+## STL
+
+C++ มี Queue ที่มีการทำงานเหมือนกันกับที่เราเขียนข้างต้น แต่สามารถใช้งานได้ง่ายกว่ามาก โดยสามารถ include จาก library `<queue>` ได้เลย
+
+### Operations
+
+- Initialization
+
+    ```cpp
+    #include <queue>
+    
+    int main() {
+        queue<int> q;
+    }
+    ```
+
+- `push()`: ใช้ในการเพิ่มข้อมูลเข้า Queue (ใส่ท้ายแถว)
+
+    ```cpp
+    q.push(10);
+    q.push(20);
+    q.push(30);
+    ```
+
+- `pop()`: ใช้ในการนำข้อมูลออกจาก Queue (ดึงหน้าสุด)
+
+    ```cpp
+    q.pop(); // นำข้อมูลตัวหน้าสุดออก
+    ```
+
+- `front()`: ใช้ในการเรียกค่าตัวหน้าสุดของ Queue
+
+    ```cpp
+    int frontValue = q.front(); // เรียกค่าตัวหน้าสุด
+    ```
+
+- `back()`: ใช้ในการเรียกค่าตัวท้ายสุดของ Queue
+
+    ```cpp
+    int backValue = q.back(); // เรียกค่าตัวท้ายสุด
+    ```
+
+- `empty()`: ใช้ในการตรวจสอบว่า Queue ว่างหรือไม่
+
+    ```cpp
+    if (q.empty()) {
+        cout << "Queue is empty!" << endl;
+    }
+    ```
+
+- `size()`: ใช้ในการเช็คจำนวนข้อมูลใน Queue
+
+    ```cpp
+    int queueSize = q.size();
+    ```
+
+- ตัวอย่างการใช้งาน
+
+    ```cpp
+    #include <iostream>
+    #include <queue>
+
+    using namespace std;
+
+    int main() {
+        queue<int> q;
+
+        q.push(10);
+        q.push(20);
+        q.push(30);
+
+        cout << "Front: " << q.front() << endl;
+        cout << "Back: " << q.back() << endl;
+        
+        q.pop();
+        
+        cout << "Front after pop: " << q.front() << endl;
+        cout << "Queue size: " << q.size() << endl;
+        
+        if (!q.empty()) {
+            cout << "Queue is not empty!" << endl;
+        }
+
+        return 0;
     }
     ```
 
