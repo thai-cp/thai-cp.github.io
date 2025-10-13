@@ -63,6 +63,8 @@ title: พื้นฐาน (Basic)
     - [ตัวแปรโครงสร้าง (Struct)](../prog-basic/cpp/struct.md)
     - [ตัวชี้ (Pointer)](../prog-basic/cpp/pointer.md)
 
+    (ควรอ่านหากศูนย์ไม่ได้บังคับให้ใช้ C)
+
 </div>
 
 ## โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน  
