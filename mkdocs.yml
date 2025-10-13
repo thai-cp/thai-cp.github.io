@@ -3,45 +3,76 @@ site_url: https://thai-cp.github.io/
 
 nav:
   - Home: index.md
-  - Road Map:
-    - พื้นฐาน (Basic): roadmap/basic.md
-  - ทั่วไป:
+  - ทั่วไป (General):
     - อะไรคือ Competitive Programming?: general/intro-cp.md
     - สอวน. คอมพิวเตอร์: general/posn.md
     - แหล่งเรียนรู้: general/resources.md
-  - การเขียนโปรแกรมเบื้องต้น:
-    - บทนำ: prog-basic/index.md
-    - วิธีการรันโปรแกรม: prog-basic/run-code.md
+  - เริ่มต้น (Beginner):
+    - ทั่วไป:
+      - บทนำ: beginner/general/intro.md
+      - วิธีการรันโปรแกรม: beginner/general/run-code.md
     - การเขียนโปรแกรมภาษา C:
-      - Hello, World!: prog-basic/c/hello-world.md
-      - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/c/variable.md
-      - การส่งออกและนำเข้าข้อมูล: prog-basic/c/input-output.md
-      - คำสั่ง if - else: prog-basic/c/if-else.md
-      - คำสั่งวนซ้ำ (Loop): prog-basic/c/loops.md
-      - ตัวแปรชุด และสายอักขระ: prog-basic/c/array.md
-      - ฟังก์ชัน: prog-basic/c/function.md
-      - ตัวแปรโครงสร้าง (Struct): prog-basic/c/struct.md
-      - ตัวชี้ (Pointer): prog-basic/c/pointer.md
+      - Hello, World!: beginner/c/hello-world.md
+      - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: beginner/c/variable.md
+      - การส่งออกและนำเข้าข้อมูล: beginner/c/input-output.md
+      - คำสั่ง if - else: beginner/c/if-else.md
+      - คำสั่งวนซ้ำ (Loop): beginner/c/loops.md
+      - ตัวแปรชุด และสายอักขระ: beginner/c/array.md
+      - ฟังก์ชัน: beginner/c/function.md
+      - ตัวแปรโครงสร้าง (Struct): beginner/c/struct.md
+      - ตัวชี้ (Pointer): beginner/c/pointer.md
     - การเขียนโปรแกรมภาษา C++:
-      - Hello, World!: prog-basic/cpp/hello-world.md
-      - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/cpp/variable.md
-      - การส่งออกและนำเข้าข้อมูล: prog-basic/cpp/input-output.md
-      - คำสั่ง if - else: prog-basic/cpp/if-else.md
-      - คำสั่งวนซ้ำ (Loop): prog-basic/cpp/loops.md
-      - ตัวแปรชุด และสายอักขระ: prog-basic/cpp/array.md
-      - ฟังก์ชัน: prog-basic/cpp/function.md
-      - ตัวแปรโครงสร้าง (Struct): prog-basic/cpp/struct.md
-      - ตัวชี้ (Pointer): prog-basic/cpp/pointer.md
-  - โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน:
-      - Complexity Analysis: dsa-basic/complexity.md
-      - Intro to Data Structures: dsa-basic/intro-ds.md
-      - Binary Search: dsa-basic/binary-search.md
-      - Sorting Algorithms: dsa-basic/sorting.md
-      - Prefix Sum: dsa-basic/prefix-sum.md
-      - Linked List: dsa-basic/linked-list.md
-      - Stack: dsa-basic/stack.md
-      - Queue: dsa-basic/queue.md
-  - โจทย์: problems/index.md
+      - Hello, World!: beginner/cpp/hello-world.md
+      - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: beginner/cpp/variable.md
+      - การส่งออกและนำเข้าข้อมูล: beginner/cpp/input-output.md
+      - คำสั่ง if - else: beginner/cpp/if-else.md
+      - คำสั่งวนซ้ำ (Loop): beginner/cpp/loops.md
+      - ตัวแปรชุด และสายอักขระ: beginner/cpp/array.md
+      - ฟังก์ชัน: beginner/cpp/function.md
+      - ตัวแปรโครงสร้าง (Struct): beginner/cpp/struct.md
+      - ตัวชี้ (Pointer): beginner/cpp/pointer.md
+    # - คณิตศาสตร์พื้นฐาน:
+
+
+  # - Road Map:
+  #   - พื้นฐาน (Basic): roadmap/basic.md
+  # - ทั่วไป:
+  #   - อะไรคือ Competitive Programming?: general/intro-cp.md
+  #   - สอวน. คอมพิวเตอร์: general/posn.md
+  #   - แหล่งเรียนรู้: general/resources.md
+  # - การเขียนโปรแกรมเบื้องต้น:
+  #   - บทนำ: prog-basic/index.md
+  #   - วิธีการรันโปรแกรม: prog-basic/run-code.md
+  #   - การเขียนโปรแกรมภาษา C:
+  #     - Hello, World!: prog-basic/c/hello-world.md
+  #     - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/c/variable.md
+  #     - การส่งออกและนำเข้าข้อมูล: prog-basic/c/input-output.md
+  #     - คำสั่ง if - else: prog-basic/c/if-else.md
+  #     - คำสั่งวนซ้ำ (Loop): prog-basic/c/loops.md
+  #     - ตัวแปรชุด และสายอักขระ: prog-basic/c/array.md
+  #     - ฟังก์ชัน: prog-basic/c/function.md
+  #     - ตัวแปรโครงสร้าง (Struct): prog-basic/c/struct.md
+  #     - ตัวชี้ (Pointer): prog-basic/c/pointer.md
+  #   - การเขียนโปรแกรมภาษา C++:
+  #     - Hello, World!: prog-basic/cpp/hello-world.md
+  #     - ตัวแปร ชนิดข้อมูล และตัวดำเนินการ: prog-basic/cpp/variable.md
+  #     - การส่งออกและนำเข้าข้อมูล: prog-basic/cpp/input-output.md
+  #     - คำสั่ง if - else: prog-basic/cpp/if-else.md
+  #     - คำสั่งวนซ้ำ (Loop): prog-basic/cpp/loops.md
+  #     - ตัวแปรชุด และสายอักขระ: prog-basic/cpp/array.md
+  #     - ฟังก์ชัน: prog-basic/cpp/function.md
+  #     - ตัวแปรโครงสร้าง (Struct): prog-basic/cpp/struct.md
+  #     - ตัวชี้ (Pointer): prog-basic/cpp/pointer.md
+  # - โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน:
+  #     - Complexity Analysis: dsa-basic/complexity.md
+  #     - Intro to Data Structures: dsa-basic/intro-ds.md
+  #     - Binary Search: dsa-basic/binary-search.md
+  #     - Sorting Algorithms: dsa-basic/sorting.md
+  #     - Prefix Sum: dsa-basic/prefix-sum.md
+  #     - Linked List: dsa-basic/linked-list.md
+  #     - Stack: dsa-basic/stack.md
+  #     - Queue: dsa-basic/queue.md
+  # - โจทย์: problems/index.md
 
 theme:
   name: material
@@ -65,6 +96,9 @@ theme:
         name: Switch to Dark Mode
   features:
     - navigation.tabs
+    - navigation.expand
+    # - navigation.top
+    # - navigation.sections
     # - navigation.instant
     
 
@@ -98,6 +132,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_css:
+  - css/custom.css
 
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

@@ -1,0 +1,12 @@
+/* Hide vertical scrollbar but keep scrolling */
+.md-sidebar__scrollwrap {
+  overflow-y: scroll;          /* allow scrolling */
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE 10+ */
+}
+
+/* Chrome, Edge, Safari */
+.md-sidebar__scrollwrap::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;     /* optional: just to be safe */
+}
