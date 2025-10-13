@@ -1,7 +1,7 @@
 ---
 title: Sorting Algorithms
 author: Pasit Sangprachathanarak
-level: Normal
+level: 
 ---
 
 !resources [(Introduction to Sorting, https://usaco.guide/bronze/intro-sorting, USACO), (Sorting (ใช้อ้างอิงบทเรียนนี้), https://usaco.guide/CPH.pdf#page=35, CPH)]
@@ -40,3 +40,5 @@ for (int i = 0; i < n; i++) {
 
 !!! info "แหล่งที่มาวิดีโอ"
     วิดีโอตัวอย่างการทำงานของ Bubble Sort นำมาจาก [YouTube (ลิงก์ต้นฉบับ)](https://www.youtube.com/watch?v=0BkoXZBbhfU) เพื่อใช้ประกอบการเรียนรู้
+
+!unfinished

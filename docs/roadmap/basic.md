@@ -1,5 +1,16 @@
 ---
-title: พื้นฐาน (Basic)
+title: พื้นฐาน (Basic) - Redirected
+---
+
+!!! warning "หน้านี้ถูกย้ายแล้ว"
+    หน้านี้ถูกย้ายไปที่ [Beginner Level](beginner.md) แล้ว
+
+    กรุณาไปที่:
+    
+    - [Beginner Level - ระดับพื้นฐาน](beginner.md)
+    - [Novice Level - ระดับกลาง](novice.md)
+    - [Intermediate Level - ระดับสูง](intermediate.md)
+
 ---
 
 ## ทั่วไป
@@ -10,8 +21,40 @@ title: พื้นฐาน (Basic)
 
 ## การเขียนโปรแกรมเบื้องต้น
 
-- [บทนำ](../prog-basic/index.md)
-- [วิธีการรันโปรแกรม](../prog-basic/run-code.md)
+- [บทนำ](../beginner/index.md)
+- [วิธีการรันโปรแกรม](../beginner/run-code.md)
+
+<div class="grid cards" markdown>
+
+- ### การเขียนโปรแกรมภาษา C
+
+    - [Hello, World!](../beginner/c/hello-world.md)
+    - [ตัวแปร ชนิดข้อมูล และตัวดำเนินการ](../beginner/c/variable.md)
+    - [การส่งออกและนำเข้าข้อมูล](../beginner/c/input-output.md)
+    - [คำสั่ง if - else](../beginner/c/if-else.md)
+    - [คำสั่งวนซ้ำ (Loops)](../beginner/c/loops.md)
+    - [ตัวแปรชุด และสายอักขระ](../beginner/c/array.md)
+    - [ฟังก์ชัน](../beginner/c/function.md)
+    - [ตัวแปรโครงสร้าง (Struct)](../beginner/cpp/struct.md)
+    - [ตัวชี้ (Pointer)](../beginner/c/pointer.md)
+
+    (สามารถอ่านหรือไม่อ่านก็ได้ แต่ควรอ่าน หากศูนย์บังคับให้ใช้ C)
+
+- ### การเขียนโปรแกรมภาษา C++
+
+    - [Hello, World!](../beginner/cpp/hello-world.md)
+    - [ตัวแปร ชนิดข้อมูล และตัวดำเนินการ](../beginner/cpp/variable.md)
+    - [การส่งออกและนำเข้าข้อมูล](../beginner/cpp/input-output.md)
+    - [คำสั่ง if - else](../beginner/cpp/if-else.md)
+    - [คำสั่งวนซ้ำ (Loops)](../beginner/cpp/loops.md)
+    - [ตัวแปรชุด และสายอักขระ](../beginner/cpp/array.md)
+    - [ฟังก์ชัน](../beginner/cpp/function.md)
+    - [ตัวแปรโครงสร้าง (Struct)](../beginner/cpp/struct.md)
+    - [ตัวชี้ (Pointer)](../beginner/cpp/pointer.md)
+
+    (ควรอ่านหากศูนย์ไม่ได้บังคับให้ใช้ C)
+
+</div>
 
 <!-- ### การเขียนโปรแกรมภาษา C
 
