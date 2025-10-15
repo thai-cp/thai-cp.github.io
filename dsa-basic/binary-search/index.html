@@ -1,0 +1,2121 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="njoop & Pasit Sangprachathanarak">
+      
+      
+        <link rel="canonical" href="https://thai-cp.github.io/dsa-basic/binary-search/">
+      
+      
+        <link rel="prev" href="../intro-ds/">
+      
+      
+        <link rel="next" href="../sorting/">
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>Binary Search - Thailand Competitive Programming Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+Thai:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans Thai";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X3SVQVTEE3"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X3SVQVTEE3",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X3SVQVTEE3",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#binary-search" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Thailand Competitive Programming Wiki" class="md-header__button md-logo" aria-label="Thailand Competitive Programming Wiki" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Thailand Competitive Programming Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Binary Search
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to Dark Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to Dark Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/thai-cp/thai-cp.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    thai-cp/thai-cp.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../roadmap/basic/" class="md-tabs__link">
+          
+  
+  
+  Road Map
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../general/intro-cp/" class="md-tabs__link">
+          
+  
+  
+  ทั่วไป
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../prog-basic/" class="md-tabs__link">
+          
+  
+  
+  การเขียนโปรแกรมเบื้องต้น
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../complexity/" class="md-tabs__link">
+          
+  
+  
+  โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../problems/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  โจทย์
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Thailand Competitive Programming Wiki" class="md-nav__button md-logo" aria-label="Thailand Competitive Programming Wiki" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Thailand Competitive Programming Wiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/thai-cp/thai-cp.github.io/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    thai-cp/thai-cp.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Road Map
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Road Map
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../roadmap/basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    พื้นฐาน (Basic)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ทั่วไป
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ทั่วไป
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/intro-cp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    อะไรคือ Competitive Programming?
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/posn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    สอวน. คอมพิวเตอร์
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../general/resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    แหล่งเรียนรู้
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    การเขียนโปรแกรมเบื้องต้น
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            การเขียนโปรแกรมเบื้องต้น
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    บทนำ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/run-code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    วิธีการรันโปรแกรม
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    การเขียนโปรแกรมภาษา C
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            การเขียนโปรแกรมภาษา C
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/c/hello-world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hello, World!
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/c/variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ตัวแปร ชนิดข้อมูล และตัวดำเนินการ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/c/input-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    การส่งออกและนำเข้าข้อมูล
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/c/if-else/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    คำสั่ง if - else
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/c/loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    คำสั่งวนซ้ำ (Loop)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/c/array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ตัวแปรชุด และสายอักขระ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/c/function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ฟังก์ชัน
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/c/struct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ตัวแปรโครงสร้าง (Struct)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/c/pointer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ตัวชี้ (Pointer)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    การเขียนโปรแกรมภาษา C++
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_4">
+            <span class="md-nav__icon md-icon"></span>
+            การเขียนโปรแกรมภาษา C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/cpp/hello-world/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hello, World!
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/cpp/variable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ตัวแปร ชนิดข้อมูล และตัวดำเนินการ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/cpp/input-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    การส่งออกและนำเข้าข้อมูล
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/cpp/if-else/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    คำสั่ง if - else
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/cpp/loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    คำสั่งวนซ้ำ (Loop)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/cpp/array/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ตัวแปรชุด และสายอักขระ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/cpp/function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ฟังก์ชัน
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/cpp/struct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ตัวแปรโครงสร้าง (Struct)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prog-basic/cpp/pointer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ตัวชี้ (Pointer)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            โครงสร้างข้อมูลและอัลกอริทึมพื้นฐาน
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../complexity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Complexity Analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../intro-ds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intro to Data Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Binary Search
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Binary Search
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#binary-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Search คืออะไร
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-search_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary search ในชีวิตประจำวัน
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Binary search ในชีวิตประจำวัน">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sequential-search-linear-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      วิธีที่ 1 (Sequential search หรือ Linear search)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-binary-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      วิธีที่ 2 (Binary search)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-search-vs-sequential-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary search vs Sequential search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-search-competitive-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Search กับ Competitive Programming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-search-on-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary search on answer
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sorting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sorting Algorithms
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prefix-sum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prefix Sum
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linked-list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linked List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../queue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Queue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../problems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    โจทย์
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#binary-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Search คืออะไร
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-search_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary search ในชีวิตประจำวัน
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Binary search ในชีวิตประจำวัน">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-sequential-search-linear-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      วิธีที่ 1 (Sequential search หรือ Linear search)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-binary-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      วิธีที่ 2 (Binary search)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-search-vs-sequential-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary search vs Sequential search
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-search-competitive-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary Search กับ Competitive Programming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binary-search-on-answer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binary search on answer
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+    <h1 style="margin-bottom: 0.1em; font-weight: bold;">Binary Search</h1>
+    
+        <p style="margin-top: 0em;">
+            Author: njoop & Pasit Sangprachathanarak
+        </p>
+    
+    <hr>
+    <h2 id="binary-search">Binary Search คืออะไร</h2>
+<p>Binary Search หรือการค้นหาแบบทวิภาค เป็นวิธีการค้นหาข้อมูลที่ใช้กับข้อมูลที่<strong>มีการเรียงลำดับแล้ว</strong> โดยจะนำข้อมูลมาแบ่งครึ่ง และพิจารณาว่าข้อมูลที่ต้องการจะค้นหาอยู่ที่ครึ่งไหน และทำซ้ำๆ ไปเรื่อยๆ</p>
+<p>Binary search สามารถทำได้โดยมีขั้นตอนดังนี้</p>
+<ol>
+<li>กำหนดตำแหน่งข้อมูลที่น้อย และมากที่สุดที่เป็นไปได้ (แทนค่าด้วยตัวแปร <span class="arithmatex">\(L\)</span>, <span class="arithmatex">\(R\)</span> ตามลำดับ โดยช่วง <span class="arithmatex">\([L, R]\)</span> จะเป็นช่วงที่เป็นไปได้ที่มจะมีข้อมูลที่เราต้องการค้นหาอยู่)</li>
+<li>หาค่าตรงกลาง ระหว่าง <span class="arithmatex">\(L\)</span> กับ <span class="arithmatex">\(R\)</span> ให้ค่านี้เป็น <span class="arithmatex">\(mid\)</span></li>
+<li>ตรวจสอบข้อมูลในตำแหน่ง <span class="arithmatex">\(mid\)</span><ul>
+<li>ถ้าเกิดข้อมูลเป็นสิ่งที่เราค้นหา ก็จบการทำงาน โดยเราพบเจอข้อมูลที่เราค้นหาแล้ว</li>
+<li>ถ้าเกิดข้อมูลน้อยกว่าสิ่งที่เราค้นหา ให้ค่า <span class="arithmatex">\(L = mid+1\)</span> (เพราะไม่มีทางที่ข้อมูลที่เราต้องการ อยู่ระหว่าง <span class="arithmatex">\(L\)</span> และ <span class="arithmatex">\(mid\)</span> แน่นอน)</li>
+<li>ถ้าเกิดข้อมูลมากกว่าสิ่งที่เราค้นหา ให้ค่า <span class="arithmatex">\(R = mid-1\)</span> (เพราะไม่มีทางที่ข้อมูลที่เราต้องการ อยู่ระหว่าง <span class="arithmatex">\(mid\)</span> และ <span class="arithmatex">\(R\)</span> แน่นอน)</li>
+</ul>
+</li>
+<li>ทำซ้ำไปเรื่อยๆ จนกว่า <span class="arithmatex">\(L &gt; R\)</span> (แสดงว่าไม่มีข้อมูลที่ค้นหาอยู่) หรือพบข้อมูลที่ต้องการ</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">หมายเหตุ</p>
+<ol>
+<li>สามารถหาค่า <span class="arithmatex">\(mid\)</span> ได้หลายวิธี โดยปกติมักทำโดยการนำค่า <span class="arithmatex">\(\frac{L+R}{2}\)</span> ปัดเศษลง แต่ก็สามารถปัดเศษขึ้นได้เหมือนกัน</li>
+<li>การกำหนดค่า <span class="arithmatex">\(L\)</span> และ <span class="arithmatex">\(R\)</span> ใหม่ ก็สามารถทำได้หลายวิธี เช่น ถ้าเกิดมีข้อมูลซ้ำ และเราต้องการหาข้อมูลที่ตรงและมีตำแหน่งมากที่สุด อาจเปลี่ยนจาก <span class="arithmatex">\(R = mid-1\)</span> เป็น <span class="arithmatex">\(R = mid\)</span> แทน</li>
+</ol>
+</div>
+<h2 id="binary-search_1">Binary search ในชีวิตประจำวัน</h2>
+<p>เราอาจใช้ Binary search ในชีวิตประจำวันโดยไม่รู้ตัว ตัวอย่างการใช้งานเช่น:</p>
+<p>มีหนังสือ 8 เล่ม โดยที่ชื่อหนังสือแต่ละเล่มนั้น <strong>เรียงลำดับตามพจนานุกรม</strong> ตามตาราง</p>
+<table>
+<thead>
+<tr>
+<th>หนังสือเล่มที่</th>
+<th>ชื่อหนังสือ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Ascendance of a bookworm</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Harry potter</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Jobless Reincarnation</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Lycoris Recoil</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Omniscient Reader's Viewpoint</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Reverend Insanity</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Secrets of the Silent Witch</td>
+</tr>
+<tr>
+<td>8</td>
+<td>The Beginning After The End</td>
+</tr>
+</tbody>
+</table>
+<p>ถ้าเกิดต้องการหาว่า "Omniscient Reader's Viewpoint" เป็นหนังสือเล่มที่เท่าไหร่ จะมีวิธีหลักๆ อยู่ 2 วิธี คือ</p>
+<h3 id="1-sequential-search-linear-search">วิธีที่ 1 (Sequential search หรือ Linear search)</h3>
+<ol>
+<li>ตรวจสอบหนังสือเล่มที่ 1 สังเกตว่าหนังสือเล่มนั้นไม่ใช่ "Omniscient Reader's Viewpoint" จึงไปดูหนังสือเล่มต่อไป</li>
+<li>ตรวจสอบหนังสือเล่มที่ 2 สังเกตว่าหนังสือเล่มนั้นไม่ใช่ "Omniscient Reader's Viewpoint" จึงไปดูหนังสือเล่มต่อไป</li>
+<li>ทำซ้ำไปเรื่อยๆ จนเจอ "Omniscient Reader's Viewpoint" หรือดูหนังสือครบทุกเล่ม</li>
+</ol>
+<h3 id="2-binary-search">วิธีที่ 2 (Binary search)</h3>
+<ol>
+<li>สังเกตว่า มีหนังสือ 8 เล่ม</li>
+<li>ตรวจสอบหนังสือเล่มที่ 4 หรือ 5 เนื่องจากทั้งตำแหน่งกึ่งกลางอาจเป็น 4 หรือ 5 ก็ได้ ในที่นี้เราเลือกหนังสือเล่มที่ 4 สังเกตว่า "Lycoris recoil" มาก่อน "Omniscient Reader's Viewpoint" ตามลำดับพจนานุกรม ดังนั้น หนังสือเล่มที่ 1 ถึง 4 ไม่มีทางเป็น "Omniscient Reader's Viewpoint" แน่นอน หนังสือที่เป็นไปได้จึงเป็นหนังสือเล่มที่ 5 ถึง 8</li>
+<li>ตรวจสอบหนังสือเล่มที่ 6 หรือ 7 ในที่นี้เราเลือกหนังสือเล่มที่ 7 สังเกตว่า "Secrets of the Silent Witch" มาหลัง "Omniscient Reader's Viewpoint" ตามลำดับพจนานุกรม ดังนั้น หนังสือที่เป็นไปได้จึงเป็นหนังสือเล่มที่ 5 ถึง 6</li>
+<li>ตรวจสอบหนังสือเล่มที่ 5 ซึ่งมีชื่อ "Omniscient Reader's Viewpoint" ตามที่เราต้องการ จึงสามารถสรุปได้ว่า "Omniscient Reader's Viewpoint" เป็นหนังสือเล่มที่ 5</li>
+</ol>
+<h2 id="binary-search-vs-sequential-search">Binary search vs Sequential search</h2>
+<p>สังเกตว่า วิธีที่ 1 จำเป็นต้องตรวจสอบหนังสืออย่างมาก 8 เล่ม แต่วิธีที่ 2 จำเป็นต้องตรวจสอบหนังสือแค่ 3 เล่ม ซึ่งดูเหมือนจะไม่ได้เร็วขึ้นกว่ากันมาก แต่ถ้าเกิดมีหนังสือ 1 ล้านเล่ม วิธีที่ 2 จะตรวจสอบหนังสือแค่ 20 เล่มเท่านั้น</p>
+<p>ถ้าเกิดมีหนังสือ n เล่ม</p>
+<ul>
+<li>วิธีที่ 1 (sequential search) ตรวจสอบอย่างมาก n ครั้ง หรือ <span class="arithmatex">\(O(n)\)</span></li>
+<li>วิธีที่ 2 (binary search) ตรวจสอบอย่างมาก <span class="arithmatex">\(\lceil \log_2 n\rceil\)</span> ครั้ง หรือ <span class="arithmatex">\(O(\log n)\)</span></li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">ข้อสังเกต</p>
+<p>Binary search สามารถใช้ได้กับข้อมูลที่มีการเรียงแล้วเท่านั้น</p>
+</div>
+<h2 id="binary-search-competitive-programming">Binary Search กับ Competitive Programming</h2>
+<div class="admonition abstract">
+<p class="admonition-title">โจทย์ตัวอย่าง</p>
+<p>รับจำนวนเต็มมา <span class="arithmatex">\(n\)</span> จำนวน <span class="arithmatex">\(a_1, a_2, ..., a_n\)</span> โดยที่ <span class="arithmatex">\(a_i \leq a_{i+1}\)</span> สำหรับ <span class="arithmatex">\(1 \leq i \leq n-1\)</span></p>
+<p>ต้องการถาม <span class="arithmatex">\(q\)</span> คำถาม ในคำถามที่ <span class="arithmatex">\(i\)</span> ให้ตอบว่ามีกี่ตัวเลขใน <span class="arithmatex">\(n\)</span> ตัวเลขนี้ ที่มีค่าอยู่ระหว่าง <span class="arithmatex">\(x_i\)</span> และ <span class="arithmatex">\(y_i\)</span> โดยที่ constraints เป็นดังนี้</p>
+<p><span class="arithmatex">\(1 \leq n, q \leq 100,000\)</span></p>
+<p><span class="arithmatex">\(1 \leq a_1, ..., a_n \leq 10^9\)</span></p>
+</div>
+<p>สังเกตว่า ในโจทย์ข้อนี้ ถ้าหากตรวจสอบทุกตัวเลข ในแต่ละคำถาม จะใช้เวลา <span class="arithmatex">\(O(nq)\)</span> ซึ่งไม่พอต่อขอบเขตข้อมูลของโจทย์</p>
+<p>เราสามารถหาว่า มีเลขกี่ตัวที่น้อยกว่าหรือเท่ากับ <span class="arithmatex">\(A\)</span> ได้ ใน <span class="arithmatex">\(O(\log n)\)</span> ด้วย binary search โดย:</p>
+<ol>
+<li>กำหนดตำแหน่งข้อมูลที่น้อย และมากที่สุดที่เป็นไปได้ (ให้ <span class="arithmatex">\(L=0,R=n\)</span>)</li>
+<li>หาค่าตรงกลาง ระหว่าง <span class="arithmatex">\(L\)</span> กับ <span class="arithmatex">\(R\)</span> ให้ค่านี้เป็น <span class="arithmatex">\(mid\)</span></li>
+<li>ตรวจสอบข้อมูลในตำแหน่ง <span class="arithmatex">\(mid\)</span><ul>
+<li>ถ้าเกิดข้อมูลน้อยกว่าหรือเท่ากับเลขที่เราค้นหา ให้ค่า <span class="arithmatex">\(L = mid+1\)</span></li>
+<li>ถ้าเกิดไม่ใช่ ให้ค่า <span class="arithmatex">\(R = mid\)</span> (ในที่นี้ เราจะไม่ใช้ <span class="arithmatex">\(R=mid-1\)</span> ในการเปลี่ยนค่า เพราะอาจมีข้อมูลซ้ำหลายๆ ที่ได้ แล้วเราต้องการตำแหน่งที่อยู่ขวาสุด)</li>
+</ul>
+</li>
+<li>ทำซ้ำไปเรื่อยๆ จนกว่า <span class="arithmatex">\(L = R\)</span></li>
+<li>จะได้ว่า <span class="arithmatex">\(L\)</span> เป็นตำแหน่งของเลขตัวแรก ที่มีค่ามากกว่า <span class="arithmatex">\(A\)</span> ดังนั้นจำนวนเลขกี่ตัวที่น้อยกว่าหรือเท่ากับ <span class="arithmatex">\(A\)</span> มี <span class="arithmatex">\(L\)</span> จำนวน</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">ข้อสังเกต</p>
+<p>การ binary search ในที่นี้ จะมีลักษณะเหมือนฟังก์ชั่น <code>std::upper_bound</code> และ <code>std::lower_bound</code> ในภาษา C++ ดังนั้นสามารถใช้ฟังก์ชั่นนี้โดยตรงได้เลย (จริงๆ แล้ว ทั้งสองฟังก์ชั่นใช้ binary search ในการค้นหาตำแหน่ง)</p>
+</div>
+<p>ในการแก้โจทย์ข้อนี้ เราจะหาตำแหน่งของ 2 ตัวเลข คือ จำนวนตัวเลขที่น้อยกว่าหรือเท่ากับ <span class="arithmatex">\(x_i-1\)</span> (ให้ค่าเป็น <span class="arithmatex">\(P\)</span>) และจำนวนตัวเลขที่น้อยกว่าหรือเท่ากับ <span class="arithmatex">\(y_i\)</span> (ให้ค่าเป็น <span class="arithmatex">\(Q\)</span>) สำหรับแต่ละคำถาม สามารถตอบ <span class="arithmatex">\(Q-P\)</span> ได้เลย</p>
+<p>สรุป Time complexity:</p>
+<ul>
+<li>การรับข้อมูล: <span class="arithmatex">\(O(n)\)</span></li>
+<li>ถามแต่ละคำถาม: <span class="arithmatex">\(O(\log n) \rightarrow\)</span> ถาม 2<span class="arithmatex">\(q\)</span> ครั้ง จะได้ time complexity เป็น <span class="arithmatex">\(O(q \log n)\)</span></li>
+</ul>
+<p>Time complexity รวม: <span class="arithmatex">\(O(n+q \log n)\)</span> ซึ่งเพียงพอต่อความต้องการของโจทย์</p>
+<p>ตัวอย่างโค้ด (ไม่ใช้ <code>std::upper_bound</code>)</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">100001</span><span class="p">];</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">mid</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">num</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">            </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">            </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">}</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">+</span><span class="n">n</span><span class="p">);</span>
+</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">q</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">search</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">search</span><span class="p">(</span><span class="n">a</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">ข้อผิดพลาดที่เกิดขึ้นบ่อย</p>
+<ol>
+<li>การที่เราหาค่า mid โดยการใช้สมการ <span class="arithmatex">\((L+R)/2\)</span> อาจทำให้เกิด overflow ขึ้นได้ เพราะระหว่างการคำนวณ ค่า <span class="arithmatex">\((L+R)\)</span> จะมีค่ามากกว่าทั้งค่า L และ R ที่โจทย์กำหนด โดยสามารถแก้ได้โดยการใช้สมการ <span class="arithmatex">\(L + (R-L)/2\)</span></li>
+</ol>
+</div>
+<p>ตัวอย่างโค้ด (ใช้ <code>std::upper_bound</code>)</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">100001</span><span class="p">];</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="n">sort</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">+</span><span class="n">n</span><span class="p">);</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">q</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">upper_bound</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">upper_bound</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="o">+</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">คำแนะนำ</p>
+<p>ถ้าเกิดข้อมูลไม่ได้เรียงมาให้ กล่าวคือ <span class="arithmatex">\(a_i \leq a_{i+1}\)</span> ไม่เป็นจริงเสมอไป สามารถจัดเรียงข้อมูลโดยใช้ <code>std::sort</code> (หรืออาจเป็นฟังก์ชั่นอื่นในภาษาอื่น) ก่อน เพื่อทำขึ้นตอนต่อไปได้ ซึ่งมี Time complexity เป็น <span class="arithmatex">\(O(n \log n)\)</span></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Source</th>
+<th>Difficulty</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://codeforces.com/contest/706/problem/B" target="_blank" rel="noopener noreferrer">Interesting drink</a></td>
+<td>CF</td>
+<td>Easy</td>
+<td><a href="/problems/CF-706B/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+<tr>
+<td><a href="https://programming.in.th/tasks/toi14_nbk48" target="_blank" rel="noopener noreferrer">สารคดีออนไลน์ (NBK48)</a></td>
+<td>TOI</td>
+<td>Normal</td>
+<td><a href="/problems/TOI14-nbk/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+<tr>
+<td><a href="https://programming.in.th/tasks/toi18_shopping" target="_blank" rel="noopener noreferrer">เชียงใหม่ไน่ทรัพย์ (Shopping)</a></td>
+<td>TOI</td>
+<td>Normal</td>
+<td><a href="/problems/TOI18-shopping/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+<tr>
+<td><a href="https://codeforces.com/contest/2112/problem/C" target="_blank" rel="noopener noreferrer">Coloring game</a></td>
+<td>CF</td>
+<td>Normal</td>
+<td><a href="/problems/CF-2112C/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="binary-search-on-answer">Binary search on answer</h2>
+<div class="admonition abstract">
+<p class="admonition-title">โจทย์ตัวอย่าง: กุลีแห่งท่าเรือ - การแข่งขันคอมพิวเตอร์โอลิมปิกระดับชาติครั้งที่ 11</p>
+<p><a href="https://programming.in.th/tasks/toi11_labor">โจทย์</a></p>
+<p>โจทย์โดยย่อ: มีกุลีทั้งหมด <span class="arithmatex">\(m\)</span> คน กุลีคนที่ <span class="arithmatex">\(i\)</span> จะใช้เวลา <span class="arithmatex">\(t_i\)</span> นาที ในการขนสินค้า 1 ชิ้นขึ้นเรือ อยากทราบว่า ถ้าต้องการขนสินค้า <span class="arithmatex">\(n\)</span> ชิ้นขึ้นเรือ โดยใช้กุลีทั้ง <span class="arithmatex">\(m\)</span> คน จะใช้เวลาน้อยที่สุดเท่าไหร่ โดยมี constraints ดังนี้</p>
+<p><span class="arithmatex">\(2\leq m\leq 10^6\)</span></p>
+<p><span class="arithmatex">\(1\leq n\leq 10^{12}\)</span></p>
+<p><span class="arithmatex">\(1\leq t_i\leq 10^6\)</span> สำหรับ <span class="arithmatex">\(1\leq i\leq m\)</span></p>
+</div>
+<p>ถ้าเกิดลองเปลี่ยนโจทย์ จากหาเวลาที่น้อยที่สุด เป็น จงหาว่า เวลา <span class="arithmatex">\(k\)</span> นาที สามารถนำสินค้าขึ้นเรือทันหรือไม่ จะเป็นโจทย์ที่ง่ายขึ้นมาก สามารถแก้ได้ใน <span class="arithmatex">\(O(m)\)</span> โดยกุลีคนที่ <span class="arithmatex">\(i\)</span> สามารถขนสินค้าได้ <span class="arithmatex">\(\lfloor \frac{k}{t_i}\rfloor\)</span> ชิ้น ตามโค้ดด้านล่าง (ให้ arr[i] แทนค่า <span class="arithmatex">\(t_i\)</span>)</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">k</span><span class="o">/</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">}</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+</span></code></pre></div>
+<p>กลับมาที่โจทย์เดิม สังเกตว่าถ้า <span class="arithmatex">\(sum &gt;= m\)</span> จะได้ว่าเวลาที่น้อยที่สุด จะน้อยกว่าหรือเท่ากับ <span class="arithmatex">\(k\)</span> เสมอ และถ้า <span class="arithmatex">\(sum &lt; m\)</span> จะได้ว่าเวลาที่น้อยที่สุด จะมากกว่า <span class="arithmatex">\(k\)</span> เสมอ</p>
+<p>ถ้าเกิดให้เวลาที่น้อยที่สุดที่สามารถขนสินค้าขึ้นเรือทัน เป็น <span class="arithmatex">\(ans\)</span> จะได้ว่า <span class="arithmatex">\(ans+1\)</span>, <span class="arithmatex">\(ans+2\)</span>, ... ก็ขนสินค้าขึ้นเรือทันเหมือนกัน ในขณะเดียวกัน <span class="arithmatex">\(ans-1\)</span>, <span class="arithmatex">\(ans-2\)</span>, ... ก็จะขนสินค้าขึ้นเรือไม่ทัน เราสามารถทำการ binary search หาค่า <span class="arithmatex">\(ans\)</span> นี้ได้เลย</p>
+<p>อย่างแรก ต้องกำหนดค่าน้อยที่สุดและค่ามากที่สุดก่อน คำตอบที่น้อยที่สุดคือ <span class="arithmatex">\(1\)</span> และคำตอบที่มากที่สุดคือ <span class="arithmatex">\(n\min(t_i)\)</span> โดยจาก <span class="arithmatex">\(1\leq n\leq 10^{12}\)</span> และ <span class="arithmatex">\(1\leq t_i\leq 10^6\)</span> จะได้ว่าค่ามากที่สุดคือ <span class="arithmatex">\(10^{18}\)</span></p>
+<p>หลักการก็จะเหมือนกับ binary search โดยตรง ดังนี้</p>
+<ol>
+<li>กำหนดตำแหน่งข้อมูลที่น้อย และมากที่สุดที่เป็นไปได้ (ให้ <span class="arithmatex">\(L=1,R=10^{18}\)</span>)</li>
+<li>หาค่าตรงกลาง ระหว่าง <span class="arithmatex">\(L\)</span> กับ <span class="arithmatex">\(R\)</span> ให้ค่านี้เป็น <span class="arithmatex">\(mid\)</span></li>
+<li>ตรวจสอบข้อมูลในตำแหน่ง <span class="arithmatex">\(mid\)</span><ul>
+<li>ถ้าเวลา <span class="arithmatex">\(mid\)</span> สามารถขนสินค้าขึ้นเรือทัน จะได้ว่า คำตอบจะต้องมีค่า <span class="arithmatex">\(&lt;=mid\)</span> จึงให้ <span class="arithmatex">\(R=mid\)</span></li>
+<li>ถ้าเวลา <span class="arithmatex">\(mid\)</span> ไม่สามารถขนสินค้าขึ้นเรือได้ทัน จะได้ว่า คำตอบจะต้องมีค่า <span class="arithmatex">\(&gt;mid\)</span> จึงให้ <span class="arithmatex">\(L=mid+1\)</span></li>
+</ul>
+</li>
+<li>ทำซ้ำไปเรื่อยๆ จนกว่า <span class="arithmatex">\(L = R\)</span></li>
+<li>จะได้ว่า <span class="arithmatex">\(L\)</span> เป็นคำตอบที่เราต้องการ จึงสามารถนำค่า <span class="arithmatex">\(L\)</span> มาตอบได้เลย</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">ฟังก์ชันโมโนโทน</p>
+<p>ถ้าเกิดเรานิยาม <span class="arithmatex">\(f(x)\)</span> เป็นฟังก์ชัน โดยที่ <span class="arithmatex">\(f(x)\)</span> จะเป็นจริงก็ต้องเมื่อเวลา <span class="arithmatex">\(x\)</span> นาที สามารถขนของได้ทัน และเป็นเท็จก็ต่อเมื่อ เวลา <span class="arithmatex">\(x\)</span> นาทีขนของไม่ทัน จะสังเกตได้ว่า <span class="arithmatex">\(f(x)\)</span> จะเป็นเท็จตลอด จนกว่าจะถึงจุดๆ หนึ่ง จากนั้นจะเป็นจริงตลอด เราเรียกสมบัตินี้ว่า โมโทโทน</p>
+<p>ฟังก์ชันโมโนโทน คือฟังก์ชันที่ไม่เพิ่ม หรือ ไม่ลด อย่างใดอย่างหนึ่ง ในการทำ binary search on answer ฟังก์ชันควรจะเป็นโมโนโทน ถึงจะสามารถใช้ได้</p>
+<p>แน่นอนว่าอาจมีฟังก์ชันแบบอื่นๆ เช่น เป็นเท็จก่อนแล้วค่อยจริง</p>
+</div>
+<p><strong>ตัวอย่าง</strong></p>
+<p>กุลี 2 คน: <span class="arithmatex">\(t = [7, 12]\)</span>, ต้องขน <span class="arithmatex">\(n = 5\)</span> ชิ้น</p>
+<p>กำหนด <span class="arithmatex">\(L = 1\)</span>, <span class="arithmatex">\(R = 5\times 7 = 35\)</span> (เพราะ <span class="arithmatex">\(\min t_i = 7\)</span>)</p>
+<ul>
+<li>mid = 18: ขนได้ <span class="arithmatex">\(\lfloor18/7\rfloor+\lfloor18/12\rfloor = 2+1=3 &lt; 5\)</span> (ยังไม่พอ) ⇒ <span class="arithmatex">\(L = 19\)</span></li>
+<li>mid = 22: ขนได้ <span class="arithmatex">\(\lfloor22/7\rfloor+\lfloor22/12\rfloor = 3+1=4 &lt; 5\)</span> (ยังไม่พอ) ⇒ <span class="arithmatex">\(L = 23\)</span></li>
+<li>mid = 29: ขนได้ <span class="arithmatex">\(\lfloor29/7\rfloor+\lfloor29/12\rfloor = 4+2=6 \geq 5\)</span> (หาค่าที่ดีกว่า) ⇒ <span class="arithmatex">\(R = 29\)</span></li>
+<li>mid = 26: ขนได้ <span class="arithmatex">\(\lfloor26/7\rfloor+\lfloor26/12\rfloor = 3+2=5 \geq 5\)</span> (หาค่าที่ดีกว่า) ⇒ <span class="arithmatex">\(R = 26\)</span></li>
+<li>mid = 24: ขนได้ <span class="arithmatex">\(\lfloor24/7\rfloor+\lfloor24/12\rfloor = 3+2=5 \geq 5\)</span> (หาค่าที่ดีกว่า) ⇒ <span class="arithmatex">\(R = 24\)</span></li>
+<li>mid = 23: ขนได้ <span class="arithmatex">\(\lfloor23/7\rfloor+\lfloor23/12\rfloor = 3+1=4 &lt; 5\)</span> (ยังไม่พอ) ⇒ <span class="arithmatex">\(L = 24\)</span></li>
+</ul>
+<p>สรุป <span class="arithmatex">\(L = R = 24\)</span> คำตอบคือ 24 นาที</p>
+<p>Time Complexity ของวิธีนี้ จะได้ว่า ในตรวจสอบ 1 ครั้งใช้เวลา <span class="arithmatex">\(O(m)\)</span> และจะทำการรันฟังก์ชันทั้งหมด <span class="arithmatex">\(\log (n\min(t_i))\)</span> ครั้ง ทำให้ Time complexity รวมเป็น <span class="arithmatex">\(O(m \log (n\min(t_i)))\)</span> หรือประมาณ <span class="arithmatex">\(O(m \log n)\)</span> ซึ่งเพียงพอต่อความต้องการของโจทย์</p>
+<p>ตัวอย่างโค้ด</p>
+<div class="language-cpp highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;bits/stdc++.h&gt;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="p">;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="mi">1000010</span><span class="p">],</span><span class="w"> </span><span class="n">l</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">=</span><span class="mf">1e18</span><span class="p">,</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span><span class="w"> </span><span class="c1">// ให้ค่า R เป็น 10^18 ไปเลย</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">find_sum</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">k</span><span class="o">/</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">}</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;=</span><span class="n">m</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="k">while</span><span class="p">(</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="n">mid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">l</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">find_sum</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">            </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">            </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mid</span><span class="p">;</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">l</span><span class="p">;</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="p">}</span>
+</span></code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">คำเตือน</p>
+<ul>
+<li>ควรตรวจสอบดีๆ ว่าโค้ดเกิดการ overflow หรือไม่ เช่น ถ้าเกิด <span class="arithmatex">\(t_i\leq 10^{18}\)</span> โค้ดข้างต้นอาจทำให้เกิด overflow ได้</li>
+<li>ควรคิดถึงเคสพิเศษ ก่อนลงมือเขียนโค้ด เช่น <span class="arithmatex">\(n=0, m=0\)</span> (ซึ่งในโจทย์ข้อนี้ไม่มี)</li>
+</ul>
+</div>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Source</th>
+<th>Difficulty</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://cses.fi/problemset/task/1620" target="_blank" rel="noopener noreferrer">Factory Machine</a></td>
+<td>CSES</td>
+<td>Easy</td>
+<td><a href="/problems/CSES-1620/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+<tr>
+<td><a href="https://grader.gchan.moe/problemset/c2_ds66_3m" target="_blank" rel="noopener noreferrer">ห้องสมุดเมือง 3M</a></td>
+<td>สอวน.</td>
+<td>Easy</td>
+<td><a href="/problems/c2-ds66-3M/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+<tr>
+<td><a href="https://programming.in.th/tasks/1107" target="_blank" rel="noopener noreferrer">Jump</a></td>
+<td>PROG</td>
+<td>Normal</td>
+<td><a href="/problems/prog-1107/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+<tr>
+<td><a href="https://cses.fi/problemset/task/2422" target="_blank" rel="noopener noreferrer">Multiplication table</a></td>
+<td>CSES</td>
+<td>Normal</td>
+<td><a href="/problems/CSES-2422/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+<tr>
+<td><a href="https://programming.in.th/tasks/toi19_merge" target="_blank" rel="noopener noreferrer">Merge</a></td>
+<td>TOI</td>
+<td>Normal</td>
+<td><a href="/problems/TOI19-merge/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+<tr>
+<td><a href="https://codeforces.com/contest/1486/problem/D" target="_blank" rel="noopener noreferrer">Max Median</a></td>
+<td>CF</td>
+<td>Hard</td>
+<td><a href="/problems/CF-1486D/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+<tr>
+<td><a href="https://programming.in.th/tasks/o58_oct_c1_evergreen" target="_blank" rel="noopener noreferrer">Evergreen</a></td>
+<td>สสวท.</td>
+<td>Hard</td>
+<td><a href="/problems/o58-evergreen/" target="_blank" rel="noopener noreferrer">View</a></td>
+</tr>
+</tbody>
+</table>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      © 2025 Thailand Competitive Programming — Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.facebook.com/thailandcp/" target="_blank" rel="noopener" title="Facebook Page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256c0 120 82.7 220.8 194.2 248.5V334.2h-52.8V256h52.8v-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287v175.9C413.8 494.8 512 386.9 512 256"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://forms.gle/7Bif1hn5Emd6Ah8h8" target="_blank" rel="noopener" title="แจ้งปัญหาหรือข้อเสนอแนะ" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.75.75 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0M9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
