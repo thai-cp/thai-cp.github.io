@@ -28,12 +28,12 @@ level: Beginner
 
 !resources [(GCC with MinGW, https://code.visualstudio.com/docs/cpp/config-mingw, VS Code)]
 
-1. ดาวน์โหลด [MinGW-w64](https://github.com/msys2/msys2-installer/releases/download/2024-12-08/msys2-x86_64-20241208.exe)
+1. ดาวน์โหลด [MinGW-w64](https://github.com/msys2/msys2-installer/releases/download/2025-08-30/msys2-x86_64-20250830.exe)
 2. รัน Installer ของ MinGW และทำตามขั้นตอน เมื่อเสร็จสิ้น ให้ช่อง "Run MSYS2 now" ถูกเลือกอยู่ด้วย แล้วจึงกด "Finish"
 3. ใน Terminal (ที่พึ่งเปิดขึ้นมาของ MSYS2) ให้รัน
 
 ```shell
-pacman -S --needed base-devel mingw-w64-ucrt-x86_64-gcc
+pacman -S --needed base-devel mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-gdb
 ```
 
 4. กด Enter เมื่อถามว่า `Enter a selection (default=all)` แล้วจึงกด Y หากถามว่าจะทำต่อหรือไม่ จนเสร็จสิ้น
@@ -50,7 +50,7 @@ g++ --version
 gdb --version
 ```
 
-หากติดตั้งสำเร็จ จะได้ version ของ GCC, g++, GDB
+หากติดตั้งสำเร็จ จะได้ version ของ GCC, G++, GDB
 
 ### Linux (Ubuntu)
 
